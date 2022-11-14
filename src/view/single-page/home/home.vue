@@ -1,29 +1,31 @@
 <template>
   <div>
     <Row :gutter="20">
-      <i-col :xs="12" :md="8" :lg="4" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 120px;padding-bottom: 10px;">
+      <i-col :xs="12" :md="8" :lg="6" v-for="(infor, i) in inforCardData" :key="`infor-${i}`" style="height: 150px;padding-bottom: 10px;">
         <infor-card shadow :color="infor.color" :icon="infor.icon" :icon-size="36">
-          <count-to :end="infor.count" count-class="count-style"/>
           <p>{{ infor.title }}</p>
+          <count-to :end="infor.count" count-class="count-style"/>
+          <p>{{ '现金：' + infor.cash.toFixed(2) + '&emsp;&emsp;' + '非现金：' + infor.noCash.toFixed(2) }}</p>
+        </infor-card>
+      </i-col>
+      <i-col :xs="12" :md="8" :lg="6" v-for="(device, i) in deviceData" :key="`device-${i}`" style="height: 150px;padding-bottom: 10px;">
+        <infor-card shadow :color="device.color" :icon="device.icon" :icon-size="36">
+          <p>{{ device.title }}</p>
+          <count-to :end="device.count" count-class="count-style"/>
         </infor-card>
       </i-col>
     </Row>
     <Row :gutter="20" style="margin-top: 10px;">
       <i-col :md="24" :lg="8" style="margin-bottom: 20px;">
         <Card shadow>
-          <chart-pie style="height: 300px;" :value="pieData" text="用户访问来源"></chart-pie>
+          <chart-pie style="height: 300px;" :value="pieData" text="用户支付方式"></chart-pie>
         </Card>
       </i-col>
       <i-col :md="24" :lg="16" style="margin-bottom: 20px;">
         <Card shadow>
-          <chart-bar style="height: 300px;" :value="barData" text="每周用户活跃量"/>
+          <chart-bar style="height: 300px;" :value="barData" text="每周在线设备量"/>
         </Card>
       </i-col>
-    </Row>
-    <Row>
-      <Card shadow>
-        <example style="height: 310px;"/>
-      </Card>
     </Row>
   </div>
 </template>
@@ -45,28 +47,32 @@ export default {
   data () {
     return {
       inforCardData: [
-        { title: '新增用户', icon: 'md-person-add', count: 803, color: '#2d8cf0' },
-        { title: '累计点击', icon: 'md-locate', count: 232, color: '#19be6b' },
-        { title: '新增问答', icon: 'md-help-circle', count: 142, color: '#ff9900' },
-        { title: '分享统计', icon: 'md-share', count: 657, color: '#ed3f14' },
-        { title: '新增互动', icon: 'md-chatbubbles', count: 12, color: '#E46CBB' },
-        { title: '新增页面', icon: 'md-map', count: 14, color: '#9A66E4' }
+        { title: '今日销售额', icon: 'ios-calendar', count: 561, cash: 329, noCash: 232, color: '#2d8cf0' },
+        { title: '昨日销售额', icon: 'md-calendar', count: 257, cash: 45, noCash: 212, color: '#19be6b' },
+        { title: '本周销售额', icon: 'ios-clipboard', count: 369, cash: 192, noCash: 177, color: '#ff9900' },
+        { title: '本月销售额', icon: 'md-clipboard', count: 645, cash: 567, noCash: 78, color: '#ed3f14' }
+      ],
+      deviceData: [
+        { title: '在线设备数量', icon: 'ios-stats', count: 95, color: '#99621e' },
+        { title: '离线设备数量', icon: 'ios-stats-outline', count: 631, color: '#739e82' },
+        { title: '异常设备数量', icon: 'md-warning', count: 82, color: '#b97375' },
+        { title: '缺货设备数量', icon: 'md-remove-circle', count: 73, color: '#414f86' }
       ],
       pieData: [
-        { value: 335, name: '直接访问' },
-        { value: 310, name: '邮件营销' },
-        { value: 234, name: '联盟广告' },
-        { value: 135, name: '视频广告' },
-        { value: 1548, name: '搜索引擎' }
+        { value: 245, name: '纸币支付' },
+        { value: 679, name: '硬币支付' },
+        { value: 44, name: '刷卡支付' },
+        { value: 1667, name: '支付宝支付' },
+        { value: 2345, name: '微信支付' }
       ],
       barData: {
-        Mon: 13253,
-        Tue: 34235,
-        Wed: 26321,
-        Thu: 12340,
-        Fri: 24643,
-        Sat: 1322,
-        Sun: 1324
+        '星期一': 361,
+        '星期二': 457,
+        '星期三': 568,
+        '星期四': 698,
+        '星期五': 2221,
+        '星期六': 1857,
+        '星期日': 2580
       }
     }
   },
