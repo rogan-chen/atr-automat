@@ -51,6 +51,26 @@ export default [
     ]
   },
   {
+    path: '/message',
+    name: 'message',
+    component: Main,
+    meta: {
+      hideInBread: true,
+      hideInMenu: true
+    },
+    children: [
+      {
+        path: 'message_page',
+        name: 'message_page',
+        meta: {
+          icon: 'md-notifications',
+          title: '消息中心'
+        },
+        component: () => import('@/view/single-page/message/index.vue')
+      }
+    ]
+  },
+  {
     path: '',
     name: 'doc',
     meta: {
@@ -58,27 +78,7 @@ export default [
       href: 'https://lison16.github.io/iview-admin-doc/#/',
       icon: 'ios-book'
     }
-  }
-  // {
-  //   path: '/message',
-  //   name: 'message',
-  //   component: Main,
-  //   meta: {
-  //     hideInBread: true,
-  //     hideInMenu: true
-  //   },
-  //   children: [
-  //     {
-  //       path: 'message_page',
-  //       name: 'message_page',
-  //       meta: {
-  //         icon: 'md-notifications',
-  //         title: '消息中心'
-  //       },
-  //       component: () => import('@/view/single-page/message/index.vue')
-  //     }
-  //   ]
-  // },
+  },
   // {
   //   path: '/components',
   //   name: 'components',

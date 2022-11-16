@@ -9,9 +9,9 @@
           <MenuItem name="readed">
             <span class="category-title">已读消息</span><Badge style="margin-left: 10px" class-name="gray-dadge" :count="messageReadedCount"></Badge>
           </MenuItem>
-          <MenuItem name="trash">
+          <!-- <MenuItem name="trash">
             <span class="category-title">回收站</span><Badge style="margin-left: 10px" class-name="gray-dadge" :count="messageTrashCount"></Badge>
-          </MenuItem>
+          </MenuItem> -->
         </Menu>
       </div>
       <div class="message-page-con message-list-con">
