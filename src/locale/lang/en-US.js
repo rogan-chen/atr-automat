@@ -42,5 +42,15 @@ export default {
   tree_table_page: 'Tree Table',
   org_tree_page: 'Org Tree',
   drag_drawer_page: 'Draggable Drawer',
-  tree_select_page: 'Tree Selector'
+  tree_select_page: 'Tree Selector',
+
+  commodity_management: 'Commodity Management',
+  commodity_type: 'Commodity Type',
+  manufacturer_management: 'Manufacturer Management',
+  commodity_information: 'Commodity Information',
+  report_statis: 'Report Statistics',
+  sales_summary_statis: 'Sales Summary Statistics',
+  marketing_center: 'Marketing Center',
+  discount_code_statis: 'Discount Code Statistics',
+  marketing_campaign_management: 'Marketing Campaign Management',
 }

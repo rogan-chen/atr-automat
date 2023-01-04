@@ -42,5 +42,15 @@ export default {
   tree_table_page: '树状表格',
   org_tree_page: '组织结构树',
   drag_drawer_page: '可拖动抽屉',
-  tree_select_page: '树状下拉选择器'
+  tree_select_page: '树状下拉选择器',
+
+  commodity_management: '商品管理',
+  commodity_type: '商品类型',
+  manufacturer_management: '厂商管理',
+  commodity_information: '商品信息',
+  report_statis: '报表统计',
+  sales_summary_statis: '销售汇总统计',
+  marketing_center: '营销中心',
+  discount_code_statis: '优惠码统计',
+  marketing_campaign_management: '营销活动管理',
 }

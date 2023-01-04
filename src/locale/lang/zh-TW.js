@@ -42,5 +42,15 @@ export default {
   tree_table_page: '樹狀表格',
   org_tree_page: '組織結構樹',
   drag_drawer_page: '可拖動抽屜',
-  tree_select_page: '樹狀下拉選擇器'
+  tree_select_page: '樹狀下拉選擇器',
+
+  commodity_management: '商品管理',
+  commodity_type: '商品類型',
+  manufacturer_management: '廠商管理',
+  commodity_information: '商品資訊',
+  report_statis: '報表統計',
+  sales_summary_statis: '銷售匯總統計',
+  marketing_center: '營銷中心',
+  discount_code_statis: '優惠券統計',
+  marketing_campaign_management: '營銷活動管理',
 }
