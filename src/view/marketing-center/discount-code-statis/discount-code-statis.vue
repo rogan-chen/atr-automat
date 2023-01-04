@@ -3,7 +3,7 @@
     <Card>
       <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns"
         @on-delete="handleDelete" />
-      <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为Csv文件</Button>
+      <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为excel文件</Button>
     </Card>
   </div>
 </template>
@@ -12,7 +12,6 @@
 import Mock from 'mockjs'
 import Tables from '_c/tables'
 
-const Random = Mock.Random
 export default {
   name: 'tables_page',
   components: {
@@ -22,16 +21,16 @@ export default {
     return {
       columns: [
         { title: '机器编号', key: 'machineNum', sortable: true },
-        { title: '机器名', key: 'machineName', editable: true },
+        { title: '机器名', key: 'machineName', editable: true, width: 120 },
         { title: '货道号', key: 'trackNum', sortable: true },
         { title: '商品编号', key: 'commodityNum', sortable: true },
         { title: '商品', key: 'commodity', sortable: true },
         { title: '商品数量', key: 'commodityQuantity', editable: true },
-        { title: '结果', key: 'result' },
+        // { title: '结果', key: 'result' },
         { title: '订单号', key: 'orderNum', sortable: true },
         { title: '优惠码', key: 'couponCode', sortable: true },
         { title: '推广人', key: 'promoter', editable: true },
-        { title: '支付时间', key: 'paymentTime', sortable: true },
+        { title: '支付时间', key: 'paymentTime', sortable: true, width: 150 },
         { title: '优惠折扣', key: 'discount', sortable: true },
         { title: '实付金额', key: 'payAmount' },
         {
@@ -65,38 +64,49 @@ export default {
     },
     exportExcel() {
       this.$refs.tables.exportCsv({
-        filename: `table-${(new Date()).valueOf()}.csv`
+        filename: `优惠码统计-${(new Date()).valueOf()}.csv`
       })
     }
   },
   mounted() {
-    // getDiscountCodeStatisTableData().then(res => {
-    //   // this.tableData = res.data
-    //   console.log('加载优惠码统计数据', res.data);
-    // })
-
     // mock data
     const mockData = Mock.mock({
-      'array|5-20': [{
+      'list|5-20': [{
         'id|+1': 1,
-        'machineNum': '',
-        'machineName': '',
-        'trackNum': '',
-        'commodityNum': '',
-        'commodity': '',
-        'commodityQuantity': '',
-        'result': '',
-        'orderNum': '',
-        'couponCode': '',
+        'machineNum': /\d{12,12}/,
+        'machineName': '中吉自动售货机',
+        'trackNum|1-30': 1,
+        'commodityNum': /\d{10,10}/,
+        'commodity|+1': [
+          '雀巢咖啡',
+          '可口可乐',
+          '百事可乐',
+          '方便面',
+          '农夫山泉',
+          '雪碧',
+          '熔岩蛋糕',
+          '手抓饼',
+          '威化饼干',
+          '冰红茶',
+        ],
+        'commodityQuantity|1-10': 1,
+        'result': '已出库',
+        'orderNum|2': /\d{5,8}\-/,
+        'couponCode': '@title(1)',
         'promoter': '@cname',
         'paymentTime': '@datetime()',
-        'discount': '',
-        'payAmount': '',
+        'discount|+1': [
+          '95折',
+          '97折',
+          '88折',
+          '93折',
+          '56折',
+        ],
+        'payAmount|1-100.2': 1,
       }],
     });
 
-    this.tableData = mockData
-    console.log('随机产生的数据', mockData);
+    this.tableData = mockData.list;
   }
 }
 </script>
