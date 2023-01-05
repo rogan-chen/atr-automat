@@ -512,7 +512,7 @@ export default [
           icon: 'md-trophy',
           title: '厂商管理'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue')
+        component: () => import('@/view/commodity-management/manufacturer-management/manufacturer-management.vue')
       },
       {
         path: 'commodity_information',

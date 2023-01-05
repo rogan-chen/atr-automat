@@ -83,7 +83,7 @@ export default {
       this.administrator = '';
     },
     okModal() {
-      this.tableData.push({
+      this.tableData.unshift({
         id: this.tableData.length + 1,
         commodityType: this.commodityType,
         commodityDescribe: this.commodityDescribe,

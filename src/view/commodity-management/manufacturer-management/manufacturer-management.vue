@@ -1,0 +1,176 @@
+<template>
+  <div>
+    <Card>
+      <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns"
+        @on-delete="handleDelete" />
+      <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为excel文件</Button>
+      <Button style="position:absolute; top: 27px; right: 17px;" type="primary"
+        @click="addCommodityType">新增厂商</Button>
+    </Card>
+    <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
+      <div>
+        厂商编号：<Input v-model="number" placeholder="请输入厂商编号" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
+        厂商名称：<Input v-model="name" placeholder="请输入厂商名称" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
+        合同编号：<Input v-model="contractNumber" placeholder="请输入合同编号" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
+        税号编号：<Input v-model="dutyNumber" placeholder="请输入税号编号" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
+        邮政编码：<Input v-model="postalCode" placeholder="请输入邮政编码" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
+        营业电话：<Input v-model="telephoneNumber" placeholder="请输入营业电话" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
+        联 系 人 ：<Input v-model="contact" placeholder="请输入联系人" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;text-indent: 7px;">
+        Email ：<Input v-model="email" placeholder="请输入email" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
+        联系电话：<Input v-model="contactNumber" placeholder="请输入联系电话" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
+        营业地址：<Input v-model="businessAddress" placeholder="请输入营业地址" style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
+        注册地址：<Input v-model="registeAddress" placeholder="请输入注册地址" style="width: 400px" />
+      </div>
+    </Modal>
+  </div>
+</template>
+
+<script>
+import Mock from 'mockjs'
+import Tables from '_c/tables'
+
+const Random = Mock.Random
+
+// TODO: 厂商管理添加修改功能；
+export default {
+  name: 'commodity_type_page',
+  components: {
+    Tables
+  },
+  data() {
+    return {
+      columns: [
+        { title: '编号', key: 'number', sortable: true },
+        { title: '厂商名称', key: 'name', editable: true },
+        { title: '地址', key: 'address', editable: true },
+        { title: '电话号码', key: 'phoneNumber', editable: true },
+        { title: '联系人', key: 'contacts', editable: true },
+        // { title: '传真', key: 'fax', editable: true },
+        { title: 'Email', key: 'email', editable: true },
+        {
+          title: '操作',
+          key: 'handle',
+          options: ['delete'],
+          button: [
+            (h, params, vm) => {
+              return h('Poptip', {
+                props: {
+                  confirm: true,
+                  title: '你确定要删除吗?'
+                },
+                on: {
+                  'on-ok': () => {
+                    vm.$emit('on-delete', params)
+                    vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
+                  }
+                }
+              }, [])
+            },
+          ]
+        }
+      ],
+      tableData: [],
+      // 新增/修改厂商
+      title: '新增厂商',
+      visible: false,
+      number: '', // 厂商编号
+      name: '', // 厂商名称
+      contractNumber: '',  // 合同编号
+      dutyNumber: '',  // 税号编号
+      postalCode: '', // 邮政编码
+      telephoneNumber: '', // 营业电话
+      contact: '', // 联系人
+      email: '',  // 电子邮箱
+      contactNumber: '', // 联系电话
+      businessAddress: '', // 营业地址
+      registeAddress: '', // 注册地址
+    }
+  },
+  methods: {
+    handleDelete(params) {
+      console.log(params)
+    },
+    exportExcel() {
+      this.$refs.tables.exportCsv({
+        filename: `厂商-${(new Date()).valueOf()}.csv`
+      })
+    },
+    addCommodityType() {
+      this.visible = true;
+      this.number = '';
+      this.name = '';
+      this.contractNumber = '';
+      this.dutyNumber = '';
+      this.postalCode = '';
+      this.telephoneNumber = '';
+      this.contact = '';
+      this.email = '';
+      this.contactNumber = '';
+      this.businessAddress = '';
+      this.registeAddress = '';
+    },
+    okModal() {
+      this.tableData.unshift({
+        id: this.tableData.length + 1,
+        number: this.number,
+        name: this.name,
+        address: this.businessAddress,
+        phoneNumber: this.contactNumber,
+        contacts: this.contact,
+        email: this.email,
+      })
+    },
+    cancelModal() {
+      
+    },
+  },
+  mounted() {
+    // mock data
+    const mockData = Mock.mock({
+      'list|8-15': [{
+        'id|+1': 1,
+        'number': /\d{12,12}/,
+        'name|+1': [
+          '自采商品',
+          '中吉公司',
+          '可口可乐公司',
+          '康师傅控股有限公司',
+          '广州统一企业有限公司',
+          '元气森林股份有限公司',
+        ],
+        'address': '@city(true)',
+        'phoneNumber': /^1(3|5|7|8)[0-9]{9}$/,
+        'contacts': '@cname()',
+        'fax': '',
+        'email': '@email()',
+      }],
+    });
+
+    this.tableData = mockData.list;
+  }
+}
+</script>
+
+<style>
+
+</style>
