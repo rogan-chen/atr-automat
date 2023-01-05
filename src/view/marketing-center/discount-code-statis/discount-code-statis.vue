@@ -13,7 +13,7 @@ import Mock from 'mockjs'
 import Tables from '_c/tables'
 
 export default {
-  name: 'tables_page',
+  name: 'discount_code_statis_page',
   components: {
     Tables
   },
@@ -34,7 +34,7 @@ export default {
         { title: '优惠折扣', key: 'discount', sortable: true },
         { title: '实付金额', key: 'payAmount' },
         {
-          title: 'Handle',
+          title: '操作',
           key: 'handle',
           options: ['delete'],
           button: [

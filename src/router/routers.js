@@ -503,7 +503,7 @@ export default [
           icon: 'logo-snapchat',
           title: '商品类型'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue')
+        component: () => import('@/view/commodity-management/commodity-type/commodity-type.vue')
       },
       {
         path: 'manufacturer_management',
