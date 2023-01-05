@@ -488,6 +488,71 @@ export default [
     component: () => import('@/view/error-page/404.vue')
   },
   {
+    path: '/cargo_management',
+    name: 'cargo_management',
+    meta: {
+      icon: 'ios-beer',
+      title: '货机管理',
+    },
+    component: Main,
+    children: [
+      {
+        path: 'machine_group_setting',
+        name: 'machine_group_setting',
+        meta: {
+          icon: 'md-construct',
+          title: '机器组设置'
+        },
+        component: () => import('@/view/cargo-management/machine-group-setting/machine-group-setting.vue')
+      },
+      {
+        path: 'machine_management',
+        name: 'machine_management',
+        meta: {
+          icon: 'ios-cut',
+          title: '机器管理'
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue')
+      },
+      {
+        path: 'freight_way_management',
+        name: 'freight_way_management',
+        meta: {
+          icon: 'md-hammer',
+          title: '货道管理'
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue')
+      },
+      {
+        path: 'machine_advertise',
+        name: 'machine_advertise',
+        meta: {
+          icon: 'logo-markdown',
+          title: '机器广告'
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue')
+      },
+      {
+        path: 'config_parameter',
+        name: 'config_parameter',
+        meta: {
+          icon: 'ios-nuclear',
+          title: '配置参数'
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue')
+      },
+      {
+        path: 'pick_code_management',
+        name: 'pick_code_management',
+        meta: {
+          icon: 'md-pricetags',
+          title: '提货码管理'
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue')
+      },
+    ],
+  },
+  {
     path: '/commodity_management',
     name: 'commodity_management',
     meta: {

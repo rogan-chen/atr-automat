@@ -44,6 +44,14 @@ export default {
   drag_drawer_page: 'Draggable Drawer',
   tree_select_page: 'Tree Selector',
 
+  cargo_management: 'Cargo Management',
+  machine_group_setting: 'Machine Group Setting',
+  machine_management: 'Machine Management',
+  freight_way_management: 'Freight Way Management',
+  machine_advertise: 'Machine Advertise',
+  config_parameter: 'Config Parameter',
+  pick_code_management: 'Pick Code Management',
+
   commodity_management: 'Commodity Management',
   commodity_type: 'Commodity Type',
   manufacturer_management: 'Manufacturer Management',

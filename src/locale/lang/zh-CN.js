@@ -44,6 +44,14 @@ export default {
   drag_drawer_page: '可拖动抽屉',
   tree_select_page: '树状下拉选择器',
 
+  cargo_management: '货机管理',
+  machine_group_setting: '机器组设置',
+  machine_management: '机器管理',
+  freight_way_management: '货道管理',
+  machine_advertise: '机器广告',
+  config_parameter: '配置参数',
+  pick_code_management: '提货码管理',
+
   commodity_management: '商品管理',
   commodity_type: '商品类型',
   manufacturer_management: '厂商管理',
