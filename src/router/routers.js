@@ -512,7 +512,7 @@ export default [
           icon: 'ios-cut',
           title: '机器管理'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue')
+        component: () => import('@/view/cargo-management/machine-management/machine-management.vue')
       },
       {
         path: 'freight_way_management',

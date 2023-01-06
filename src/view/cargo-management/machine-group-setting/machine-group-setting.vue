@@ -49,6 +49,7 @@ export default {
                 },
                 on: {
                   click: () => {
+                    this.title = '修改机器组';
                     this.visible = true;
                     this.machineGroupName = params.row.machineGroupName;
                     this.machineGroupDescribe = params.row.machineGroupDescribe;
@@ -57,6 +58,7 @@ export default {
                   }
                 }
               }, '修改'),
+              h('span', {}, ' '),
               h('Button', {
                 props: {
                   type: 'warning',
@@ -73,7 +75,7 @@ export default {
       ],
       tableData: [],
       // 新增/修改机器组名
-      title: '新增机器组名',
+      title: '新增机器组',
       visible: false,
       machineGroupName: '',
       machineGroupDescribe: '',
@@ -88,6 +90,7 @@ export default {
       })
     },
     addMachineGroup() {
+      this.title = '新增机器组';
       this.visible = true;
       this.machineGroupName = '';
       this.machineGroupDescribe = '';
