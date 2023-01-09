@@ -548,7 +548,7 @@ export default [
           icon: 'md-pricetags',
           title: '提货码管理'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue')
+        component: () => import('@/view/cargo-management/pick-code-management/pick-code-management.vue')
       },
     ],
   },
