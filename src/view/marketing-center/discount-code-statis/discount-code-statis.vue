@@ -26,7 +26,6 @@ export default {
         { title: '商品编号', key: 'commodityNum', sortable: true },
         { title: '商品', key: 'commodity', sortable: true },
         { title: '商品数量', key: 'commodityQuantity', editable: true },
-        // { title: '结果', key: 'result' },
         { title: '订单号', key: 'orderNum', sortable: true },
         { title: '优惠码', key: 'couponCode', sortable: true },
         { title: '推广人', key: 'promoter', editable: true },

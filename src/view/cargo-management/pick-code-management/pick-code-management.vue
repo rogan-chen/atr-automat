@@ -82,12 +82,6 @@ export default {
       this.pickCodeCount = '';
     },
     okModal() {
-      // this.tableData.unshift({
-      //   id: this.tableData.length + 1,
-      //   machineGroupName: this.machineGroupName,
-      //   machineGroupDescribe: this.machineGroupDescribe,
-      //   administrator: this.administrator,
-      // });
       for (let index = 0; index < this.pickCodeCount; index++) {
         this.tableData.unshift({
           machineGroupName: this.machineGroupName,

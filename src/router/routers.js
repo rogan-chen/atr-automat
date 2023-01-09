@@ -539,7 +539,7 @@ export default [
           icon: 'ios-nuclear',
           title: '配置参数'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue')
+        component: () => import('@/view/cargo-management/config-parameter/config-parameter.vue')
       },
       {
         path: 'pick_code_management',
