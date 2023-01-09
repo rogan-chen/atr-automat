@@ -530,7 +530,7 @@ export default [
           icon: 'logo-markdown',
           title: '机器广告'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue')
+        component: () => import('@/view/cargo-management/machine-advertise/machine-advertise.vue')
       },
       {
         path: 'config_parameter',
