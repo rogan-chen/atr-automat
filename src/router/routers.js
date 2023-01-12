@@ -521,7 +521,7 @@ export default [
           icon: 'md-hammer',
           title: '货道管理'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue')
+        component: () => import('@/view/cargo-management/freight-way-management/freight-way-management.vue')
       },
       {
         path: 'machine_advertise',
