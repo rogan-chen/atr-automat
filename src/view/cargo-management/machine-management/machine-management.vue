@@ -3,18 +3,62 @@
     <Card>
       <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns" />
       <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为excel文件</Button>
-      <!-- <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addMachineGroup">新增机器</Button> -->
+      <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addMachineGroup">新增机器</Button>
     </Card>
     <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
-      <div>
-        机器组名：<Input v-model="machineGroupName" placeholder="请输入机器组名" style="width: 400px" />
+      <div style="text-indent: 12px;">
+        机器组名：
+        <Select v-model="machineGroupName" placeholder="请选择机器分组" style="width: 400px;">
+          <Option v-for="item in machineGroupNameList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+        </Select>
+      </div>
+      <div style="margin-top: 20px; text-indent: 12px;">
+        机器编号：
+        <Select v-model="machineNumber" placeholder="请选择机器编号" style="width: 400px;">
+          <Option v-for="item in machineNumberList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+        </Select>
       </div>
       <div style="margin-top: 20px;">
-        管理员：<Input v-model="administrator" placeholder="请输入管理员" style="width: 400px; text-indent: 11px;" />
+        机器名： <Input v-model="machineName" placeholder="请输入机器名" style="width: 400px;" />
       </div>
       <div style="margin-top: 20px;">
-        描述： <Input v-model="machineGroupDescribe" placeholder="请输入描述" type="textarea" :rows="4"
-          style="width: 400px; text-indent: 18px;" />
+        厢体ID： <Input v-model="carbodyID" placeholder="请输入厢体ID" style="width: 400px;" />
+      </div>
+      <div style="margin-top: 20px; text-indent: 12px;">
+        账号锁定：
+        <Select v-model="accountLockout" placeholder="请选择账号锁定" style="width: 400px;">
+          <Option value="已锁定" key="已锁定">已锁定</Option>
+          <Option value="未锁定" key="未锁定">未锁定</Option>
+        </Select>
+      </div>
+      <div style="margin-top: 20px;">
+        部署地址： <Input v-model="deployAddress" placeholder="请输入部署地址" style="width: 400px;" />
+      </div>
+      <div style="margin-top: 20px;">
+        经度： <Input v-model="longitude" placeholder="请输入经度" style="width: 400px;" />
+      </div>
+      <div style="margin-top: 20px;">
+        纬度： <Input v-model="latitude" placeholder="请输入纬度" style="width: 400px;" />
+      </div>
+      <div style="margin-top: 20px;">
+        自动退款次数： <Input v-model="refund" placeholder="请输入机器出货网络异常自动退款次数" style="width: 400px;" />
+      </div>
+      <div style="margin-top: 20px;">
+        收款账户： <Input v-model="collectionAccount" placeholder="请输入收款账户" style="width: 400px;" />
+      </div>
+      <div style="margin-top: 20px;">
+        便利店购物车：
+        <Select v-model="shoppingCar" placeholder="请选择便利店购物车状态" style="width: 400px;">
+          <Option value="开启" key="开启">开启</Option>
+          <Option value="关闭" key="关闭">关闭</Option>
+        </Select>
+      </div>
+      <div style="margin-top: 20px;">
+        是否支持预定：
+        <Select v-model="preorder" placeholder="请选择是否支持预定" style="width: 400px;">
+          <Option value="是" key="是">是</Option>
+          <Option value="否" key="否">否</Option>
+        </Select>
       </div>
     </Modal>
   </div>
@@ -58,12 +102,21 @@ export default {
                 },
                 on: {
                   click: () => {
-                    // this.title = '修改机器组';
-                    // this.visible = true;
-                    // this.machineGroupName = params.row.machineGroupName;
-                    // this.machineGroupDescribe = params.row.machineGroupDescribe;
-                    // this.administrator = params.row.administrator;
-                    // this.machineGroupIndex = params.row.initRowIndex;
+                    this.title = '修改机器';
+                    this.visible = true;
+                    this.machineGroupName = params.row.machineGroupName;
+                    this.machineNumber = params.row.machineNumber;
+                    this.machineName = params.row.machineName;
+                    this.carbodyID = params.row.carbodyID;
+                    this.accountLockout = params.row.accountLockout;
+                    this.deployAddress = params.row.deployAddress;
+                    this.longitude = params.row.longitude;
+                    this.latitude = params.row.latitude;
+                    this.refund = params.row.refund;
+                    this.collectionAccount = params.row.collectionAccount;
+                    this.shoppingCar = params.row.shoppingCar;
+                    this.preorder = params.row.preorder;
+                    this.machineGroupIndex = params.row.initRowIndex;
                   }
                 }
               }, '修改'),
@@ -83,13 +136,37 @@ export default {
         }
       ],
       tableData: [],
-      // 新增/修改机器组名
-      title: '新增机器组',
+      machineGroupNameList: [
+        { value: '东莞塘厦分组', label: '东莞塘厦分组' },
+        { value: '香港九龙分组', label: '香港九龙分组' },
+        { value: '广州天河分组', label: '广州天河分组' },
+        { value: '深圳南山分组', label: '深圳南山分组' },
+        { value: '佛山禅城分组', label: '佛山禅城分组' },
+        { value: '珠海香洲分组', label: '珠海香洲分组' },
+      ],
+      machineNumberList: [
+        { value: '87213214435', label: '87213214435' },
+        { value: '34524352231', label: '34524352231' },
+        { value: '12334551224', label: '12334551224' },
+        { value: '96325120122', label: '96325120122' },
+        { value: '45630046272', label: '45630046272' },
+      ],
+      // 新增/修改机器
+      title: '新增机器',
       visible: false,
-      // machineGroupName: '',
-      // machineGroupDescribe: '',
-      // administrator: '',
-      // machineGroupIndex: -1,
+      machineGroupName: '', // 机器组名
+      machineNumber: '',  // 机器编号
+      machineName: '', // 机器名
+      carbodyID: '', // 厢体ID
+      accountLockout: '', // 账号是否锁定
+      deployAddress: '', // 部署地址
+      longitude: '', // 经度
+      latitude: '', // 纬度
+      refund: '', // 机器出货网络异常自动退款次数
+      collectionAccount: '', // 收款账户
+      shoppingCar: '', // 便利店购物车
+      preorder: '', // 是否支持预定
+      machineGroupIndex: -1,
     }
   },
   methods: {
@@ -102,8 +179,17 @@ export default {
       this.title = '新增机器';
       this.visible = true;
       this.machineGroupName = '';
-      this.machineGroupDescribe = '';
-      this.administrator = '';
+      this.machineNumber = '';
+      this.machineName = '';
+      this.carbodyID = '';
+      this.accountLockout = '';
+      this.deployAddress = '';
+      this.longitude = '';
+      this.latitude = '';
+      this.refund = '';
+      this.collectionAccount = '';
+      this.shoppingCar = '';
+      this.preorder = '';
       this.machineGroupIndex = -1;
     },
     okModal() {
@@ -112,8 +198,17 @@ export default {
         this.tableData.unshift({
           id: this.tableData.length + 1,
           machineGroupName: this.machineGroupName,
-          machineGroupDescribe: this.machineGroupDescribe,
-          administrator: this.administrator,
+          machineNumber: this.machineNumber,
+          machineName: this.machineName,
+          carbodyID: this.carbodyID,
+          accountLockout: this.accountLockout,
+          deployAddress: this.deployAddress,
+          longitude: this.longitude,
+          latitude: this.latitude,
+          refund: this.refund,
+          collectionAccount: this.collectionAccount,
+          shoppingCar: this.shoppingCar,
+          preorder: this.preorder,
         });
         return;
       }
@@ -122,8 +217,17 @@ export default {
       this.tableData.splice(this.machineGroupIndex, 1, {
         id: this.tableData[this.machineGroupIndex].id,
         machineGroupName: this.machineGroupName,
-        machineGroupDescribe: this.machineGroupDescribe,
-        administrator: this.administrator,
+        machineNumber: this.machineNumber,
+        machineName: this.machineName,
+        carbodyID: this.carbodyID,
+        accountLockout: this.accountLockout,
+        deployAddress: this.deployAddress,
+        longitude: this.longitude,
+        latitude: this.latitude,
+        refund: this.refund,
+        collectionAccount: this.collectionAccount,
+        shoppingCar: this.shoppingCar,
+        preorder: this.preorder,
       });
     },
     cancelModal() {
@@ -143,7 +247,13 @@ export default {
           '佛山禅城分组',
           '珠海香洲分组',
         ],
-        'machineNumber': /\d{11,11}/,
+        'machineNumber|1': [
+          '87213214435',
+          '34524352231',
+          '12334551224',
+          '96325120122',
+          '45630046272',
+        ],
         'machineName': '@title(1)',
         'carbodyID': /\d{8,8}/,
         'accountLockout|1': ['未锁定', '已锁定'],
@@ -153,7 +263,7 @@ export default {
         'refund|3-10': 5,
         'collectionAccount': /\d{15,15}/,
         'shoppingCar|1': ['关闭', '开启'],
-        'preorder|1': ['否', '是'], 
+        'preorder|1': ['否', '是'],
       }],
     });
 
