@@ -548,7 +548,7 @@ export default [
           icon: 'ios-map',
           title: '补货记录',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/history-record/replenish-record/replenish-record.vue'),
       },
       {
         path: 'door_record',
@@ -557,7 +557,7 @@ export default [
           icon: 'ios-calendar',
           title: '开关门记录',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/history-record/door-record/door-record.vue'),
       },
     ],
   },
