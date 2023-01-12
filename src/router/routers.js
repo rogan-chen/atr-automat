@@ -488,6 +488,80 @@ export default [
     component: () => import('@/view/error-page/404.vue')
   },
   {
+    path: '/history_record',
+    name: 'history_record',
+    meta: {
+      icon: 'ios-bookmarks',
+      title: '历史记录',
+    },
+    component: Main,
+    children: [
+      {
+        path: 'sale_detail',
+        name: 'sale_detail',
+        meta: {
+          icon: 'md-filing',
+          title: '销售明细',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'shipping_record',
+        name: 'shipping_record',
+        meta: {
+          icon: 'ios-folder-open',
+          title: '出货记录',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'coin_record',
+        name: 'coin_record',
+        meta: {
+          icon: 'logo-yen',
+          title: '钱币记录',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'call_police',
+        name: 'call_police',
+        meta: {
+          icon: 'logo-github',
+          title: '报警',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'non_cash_journal_record',
+        name: 'non_cash_journal_record',
+        meta: {
+          icon: 'ios-list-box',
+          title: '非现金流水记录',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'replenish_record',
+        name: 'replenish_record',
+        meta: {
+          icon: 'ios-map',
+          title: '补货记录',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'door_record',
+        name: 'door_record',
+        meta: {
+          icon: 'ios-calendar',
+          title: '开关门记录',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+    ],
+  },
+  {
     path: '/cargo_management',
     name: 'cargo_management',
     meta: {

@@ -44,6 +44,15 @@ export default {
   drag_drawer_page: 'Draggable Drawer',
   tree_select_page: 'Tree Selector',
 
+  history_record: 'History Record',
+  sale_detail: 'Sale Detail',
+  shipping_record: 'Shipping Record',
+  coin_record: 'Coin Record',
+  call_police: 'Call Police',
+  non_cash_journal_record: 'Non-cash Journal Record',
+  replenish_record: 'Replenish Record',
+  door_record: 'Door Opening and Closing Record',
+
   cargo_management: 'Cargo Management',
   machine_group_setting: 'Machine Group Setting',
   machine_management: 'Machine Management',

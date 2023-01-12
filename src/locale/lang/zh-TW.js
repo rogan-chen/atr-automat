@@ -44,6 +44,15 @@ export default {
   drag_drawer_page: '可拖動抽屜',
   tree_select_page: '樹狀下拉選擇器',
 
+  history_record: '歷史記錄',
+  sale_detail: '銷售明細',
+  shipping_record: '出貨記錄',
+  coin_record: '錢幣記錄',
+  call_police: '報警',
+  non_cash_journal_record: '非現金流水記錄',
+  replenish_record: '補貨記錄',
+  door_record: '開關門記錄',
+
   cargo_management: '貨機管理',
   machine_group_setting: '機器組設置',
   machine_management: '機器設置',

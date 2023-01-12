@@ -44,6 +44,15 @@ export default {
   drag_drawer_page: '可拖动抽屉',
   tree_select_page: '树状下拉选择器',
 
+  history_record: '历史记录',
+  sale_detail: '销售明细',
+  shipping_record: '出货记录',
+  coin_record: '钱币记录',
+  call_police: '报警',
+  non_cash_journal_record: '非现金流水记录',
+  replenish_record: '补货记录',
+  door_record: '开关门记录',
+
   cargo_management: '货机管理',
   machine_group_setting: '机器组设置',
   machine_management: '机器管理',
