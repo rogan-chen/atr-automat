@@ -25,6 +25,85 @@ import Mock from 'mockjs'
 import Tables from '_c/tables'
 import { roleNames } from '@/mock/data/option-data.js'
 
+const emptyData = [
+  {
+    title: '日运行监控',
+    expand: false,
+    children: [
+      { title: '机器缺货查询' },
+      { title: '状态监控' },
+      { title: '当日销售监控' },
+      { title: '机器温度查询' },
+      { title: '补货建议' },
+    ],
+  },
+  {
+    title: '历史记录',
+    expand: false,
+    children: [
+      { title: '非现金流水记录' },
+      { title: '销售明细' },
+      { title: '出货记录' },
+      { title: '钱币记录' },
+      { title: '报警' },
+      { title: '补货记录' },
+      { title: '开关门记录' },
+    ],
+  },
+  {
+    title: '系统设置',
+    expand: false,
+    children: [
+      { title: '个人设置' },
+      { title: '代理商标' },
+      { title: '角色管理' },
+      { title: '用户管理' },
+      { title: '设置支付参数' },
+      { title: '帮助管理' },
+    ],
+  },
+  {
+    title: '货机管理',
+    expand: false,
+    children: [
+      { title: '机器组设置' },
+      { title: '机器管理' },
+      { title: '货道管理' },
+      { title: '配置参数' },
+      { title: '机器广告' },
+      { title: '提货码管理' },
+    ],
+  },
+  {
+    title: '商品管理',
+    expand: false,
+    children: [
+      { title: '商品类型' },
+      { title: '厂商管理' },
+      { title: '商品信息' },
+    ],
+  },
+  {
+    title: '报表统计',
+    expand: false,
+    children: [
+      { title: '销售汇总统计' },
+    ],
+  },
+  {
+    title: '营销中心',
+    expand: false,
+    children: [
+      { title: '营销活动管理' },
+      { title: '优惠码统计' },
+    ],
+  },
+  {
+    title: '机器参数设置',
+    expand: false,
+  },
+];
+
 export default {
   name: 'role_management_page',
   components: {
@@ -55,6 +134,7 @@ export default {
                     this.roleName = params.row.roleName;
                     this.roleDescribe = params.row.roleDescribe;
                     this.createDate = params.row.createDate;
+                    this.empowerData = JSON.parse(JSON.stringify(params.row.empowerData));
                     this.machineGroupIndex = params.row.initRowIndex;
                   }
                 }
@@ -123,7 +203,8 @@ export default {
           id: this.tableData.length + 1,
           roleName: this.roleName,
           roleDescribe: this.roleDescribe,
-          createDate: new Date().toLocaleDateString().replace('/', '-'),
+          createDate: new Date().toLocaleString().replace('/', '-').replace('/', '-'),
+          empowerData: JSON.parse(JSON.stringify(emptyData)),
         });
         return;
       }
@@ -134,6 +215,7 @@ export default {
         roleName: this.roleName,
         roleDescribe: this.roleDescribe,
         createDate: this.createDate,
+        empowerData: this.empowerData,
       });
     },
     cancelModal() {},
@@ -151,85 +233,8 @@ export default {
         'id|+1': 1,
         'roleName|+1': roleNames,
         'roleDescribe': '@cparagraph(1, 3)',
-        'createDate': '@date()',
-        'empowerData': [
-          {
-            title: '日运行监控',
-            expand: false,
-            children: [
-              { title: '机器缺货查询' },
-              { title: '状态监控' },
-              { title: '当日销售监控' },
-              { title: '机器温度查询' },
-              { title: '补货建议' },
-            ],
-          },
-          {
-            title: '历史记录',
-            expand: false,
-            children: [
-              { title: '非现金流水记录' },
-              { title: '销售明细' },
-              { title: '出货记录' },
-              { title: '钱币记录' },
-              { title: '报警' },
-              { title: '补货记录' },
-              { title: '开关门记录' },
-            ],
-          },
-          {
-            title: '系统设置',
-            expand: false,
-            children: [
-              { title: '个人设置' },
-              { title: '代理商标' },
-              { title: '角色管理' },
-              { title: '用户管理' },
-              { title: '设置支付参数' },
-              { title: '帮助管理' },
-            ],
-          },
-          {
-            title: '货机管理',
-            expand: false,
-            children: [
-              { title: '机器组设置' },
-              { title: '机器管理' },
-              { title: '货道管理' },
-              { title: '配置参数' },
-              { title: '机器广告' },
-              { title: '提货码管理' },
-            ],
-          },
-          {
-            title: '商品管理',
-            expand: false,
-            children: [
-              { title: '商品类型' },
-              { title: '厂商管理' },
-              { title: '商品信息' },
-            ],
-          },
-          {
-            title: '报表统计',
-            expand: false,
-            children: [
-              { title: '销售汇总统计' },
-            ],
-          },
-          {
-            title: '营销中心',
-            expand: false,
-            children: [
-              { title: '营销活动管理' },
-              { title: '优惠码统计' },
-            ],
-          },
-          {
-            title: '机器参数设置',
-            expand: false,
-          },
-        ],
+        'createDate': '@datetime()',
+        'empowerData': JSON.parse(JSON.stringify(emptyData)),
       }],
     });
 

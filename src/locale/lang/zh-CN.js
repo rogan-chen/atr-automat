@@ -55,6 +55,8 @@ export default {
 
   system_setting: '系统设置',
   role_management: '角色管理',
+  user_management: '用户管理',
+  user_group_management: '用户组管理',
   help_management: '帮助管理',
   pay_parameter: '设置支付参数',
   personal_setting: '个人设置',

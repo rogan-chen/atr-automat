@@ -55,6 +55,8 @@ export default {
 
   system_setting: 'System Setting',
   role_management: 'Role Management',
+  user_management: 'User Management',
+  user_group_management: 'User Group Management',
   help_management: 'Help Management',
   pay_parameter: 'Set Pay Parameter',
   personal_setting: 'Personal Setting',

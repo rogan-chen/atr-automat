@@ -580,6 +580,24 @@ export default [
         component: () => import('@/view/system-setting/role-management/role-management.vue'),
       },
       {
+        path: 'user_management',
+        name: 'user_management',
+        meta: {
+          icon: 'ios-person',
+          title: '用户管理',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'user_group_management',
+        name: 'user_group_management',
+        meta: {
+          icon: 'ios-people',
+          title: '用户组管理',
+        },
+        component: () => import('@/view/system-setting/user-group-management/user-group-management.vue'),
+      },
+      {
         path: 'help_management',
         name: 'help_management',
         meta: {
@@ -601,7 +619,7 @@ export default [
         path: 'personal_setting',
         name: 'personal_setting',
         meta: {
-          icon: 'md-person',
+          icon: 'md-cog',
           title: '个人设置',
         },
         component: () => import('@/view/multilevel/level-2-1.vue'),
