@@ -562,6 +562,62 @@ export default [
     ],
   },
   {
+    path: '/system_setting',
+    name: 'system_setting',
+    meta: {
+      icon: 'md-settings',
+      title: '系统设置',
+    },
+    component: Main,
+    children: [
+      {
+        path: 'role_management',
+        name: 'role_management',
+        meta: {
+          icon: 'md-contacts',
+          title: '角色管理',
+        },
+        component: () => import('@/view/system-setting/role-management/role-management.vue'),
+      },
+      {
+        path: 'help_management',
+        name: 'help_management',
+        meta: {
+          icon: 'md-help',
+          title: '帮助管理',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'pay_parameter',
+        name: 'pay_parameter',
+        meta: {
+          icon: 'md-help-buoy',
+          title: '设置支付参数',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'personal_setting',
+        name: 'personal_setting',
+        meta: {
+          icon: 'md-person',
+          title: '个人设置',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+      {
+        path: 'agent_trademark',
+        name: 'agent_trademark',
+        meta: {
+          icon: 'logo-instagram',
+          title: '代理商标',
+        },
+        component: () => import('@/view/multilevel/level-2-1.vue'),
+      },
+    ],
+  },
+  {
     path: '/cargo_management',
     name: 'cargo_management',
     meta: {

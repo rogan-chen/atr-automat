@@ -53,6 +53,13 @@ export default {
   replenish_record: '補貨記錄',
   door_record: '開關門記錄',
 
+  system_setting: '系統設置',
+  role_management: '角色管理',
+  help_management: '幫助管理',
+  pay_parameter: '設置支付參數',
+  personal_setting: '個人設置',
+  agent_trademark: '代理商標',
+
   cargo_management: '貨機管理',
   machine_group_setting: '機器組設置',
   machine_management: '機器設置',

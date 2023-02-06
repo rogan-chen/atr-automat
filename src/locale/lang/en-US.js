@@ -53,6 +53,13 @@ export default {
   replenish_record: 'Replenish Record',
   door_record: 'Door Opening and Closing Record',
 
+  system_setting: 'System Setting',
+  role_management: 'Role Management',
+  help_management: 'Help Management',
+  pay_parameter: 'Set Pay Parameter',
+  personal_setting: 'Personal Setting',
+  agent_trademark: 'Agent Trademark',
+
   cargo_management: 'Cargo Management',
   machine_group_setting: 'Machine Group Setting',
   machine_management: 'Machine Management',
