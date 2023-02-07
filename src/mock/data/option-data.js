@@ -105,6 +105,19 @@ export const roleNames = [
   '厨师',
 ];
 
+export const roleNameList = [
+  { value: '测试员', label: '测试员' },
+  { value: '补货员', label: '补货员' },
+  { value: '操作员', label: '操作员' },
+  { value: '产品经理', label: '产品经理' },
+  { value: '项目经理', label: '项目经理' },
+  { value: '技术总监', label: '技术总监' },
+  { value: '软件开发工程师', label: '软件开发工程师' },
+  { value: '电子开发工程师', label: '电子开发工程师' },
+  { value: '人事管理员', label: '人事管理员' },
+  { value: '厨师', label: '厨师' },
+];
+
 // 用户组名称
 export const userGroupNames = [
   '技术部',

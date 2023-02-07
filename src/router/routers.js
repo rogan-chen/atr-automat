@@ -586,7 +586,7 @@ export default [
           icon: 'ios-person',
           title: '用户管理',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/system-setting/user-management/user-management.vue'),
       },
       {
         path: 'user_group_management',
