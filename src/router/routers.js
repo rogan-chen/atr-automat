@@ -631,7 +631,7 @@ export default [
           icon: 'logo-instagram',
           title: '代理商标',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/system-setting/agent-trademark/agent-trademark.vue'),
       },
     ],
   },
