@@ -23,6 +23,7 @@
 <script>
 import Mock from 'mockjs'
 import Tables from '_c/tables'
+import { machineGroupNameValues } from '@/mock/data/option-data.js';
 
 export default {
   name: 'commodity_type_page',
@@ -126,14 +127,7 @@ export default {
     const mockData = Mock.mock({
       'list|3-8': [{
         'id|+1': 1,
-        'machineGroupName|+1': [
-          '东莞塘厦分组',
-          '香港九龙分组',
-          '广州天河分组',
-          '深圳南山分组',
-          '佛山禅城分组',
-          '珠海香洲分组',
-        ],
+        'machineGroupName|+1': machineGroupNameValues,
         'machineGroupDescribe|+1': [
           '来看时代峻峰可视对讲分开了',
           'ad上岛咖啡几十块等级分类考试的借款分类进来看',

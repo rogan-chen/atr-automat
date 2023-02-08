@@ -77,6 +77,14 @@
 <script>
 import Mock from 'mockjs'
 import Tables from '_c/tables'
+import {
+  machineGroupNameList,
+  machineGroupNameValues,
+  machineNumberList,
+  machineNumberValues,
+  switchList,
+  switchValues,
+} from '@/mock/data/option-data.js';
 
 export default {
   name: 'commodity_type_page',
@@ -147,25 +155,9 @@ export default {
           }
         },
       ],
-      machineGroupNameList: [
-        { value: '东莞塘厦分组', label: '东莞塘厦分组' },
-        { value: '香港九龙分组', label: '香港九龙分组' },
-        { value: '广州天河分组', label: '广州天河分组' },
-        { value: '深圳南山分组', label: '深圳南山分组' },
-        { value: '佛山禅城分组', label: '佛山禅城分组' },
-        { value: '珠海香洲分组', label: '珠海香洲分组' },
-      ],
-      machineNumberList: [
-        { value: '87213214435', label: '87213214435' },
-        { value: '34524352231', label: '34524352231' },
-        { value: '12334551224', label: '12334551224' },
-        { value: '96325120122', label: '96325120122' },
-        { value: '45630046272', label: '45630046272' },
-      ],
-      switchList: [
-        { value: '开启', label: '开启' },
-        { value: '关闭', label: '关闭' },
-      ],
+      machineGroupNameList,
+      machineNumberList,
+      switchList,
       tableData: [],
       // 新增/修改配置信息
       title: '新增配置参数',
@@ -260,31 +252,18 @@ export default {
     const mockData = Mock.mock({
       'list|5-10': [{
         'id|+1': 1,
-        'machineGroupName|+1': [
-          '东莞塘厦分组',
-          '香港九龙分组',
-          '广州天河分组',
-          '深圳南山分组',
-          '佛山禅城分组',
-          '珠海香洲分组',
-        ],
-        'machineNumber|1': [
-          '87213214435',
-          '34524352231',
-          '12334551224',
-          '96325120122',
-          '45630046272',
-        ],
-        'remoteState|1': ['开启', '关闭'],
-        'machineDetection|1': ['开启', '关闭'],
-        'isCoinChange|1': ['开启', '关闭'],
+        'machineGroupName|+1': machineGroupNameValues,
+        'machineNumber|1': machineNumberValues,
+        'remoteState|1': switchValues,
+        'machineDetection|1': switchValues,
+        'isCoinChange|1': switchValues,
         'setMainTemperature|10-40': 10,
         'setSubTemperature|10-40': 15,
-        'isUnusualLock|1': ['开启', '关闭'],
+        'isUnusualLock|1': switchValues,
         'notEnoughMoney|10-100': 10,
         'maxAcceptAmount|100-500': 100,
         'clearAmount|1-50': 1,
-        'isBanPaperMoney|1': ['开启', '关闭'],
+        'isBanPaperMoney|1': switchValues,
         'setTime': '@datetime()',
       }],
     });

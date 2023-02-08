@@ -27,8 +27,7 @@
       <div style="margin-top: 20px; text-indent: 12px;">
         操作类型：
         <Select v-model="handleType" placeholder="请选择操作类型" style="width: 400px;">
-          <Option value="开门" key="开门">开门</Option>
-          <Option value="关门" key="关门">关门</Option>
+          <Option v-for="item in doorList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
       </div>
     </Modal>
@@ -43,6 +42,8 @@ import {
   machineGroupNameValues,
   machineNumberList,
   machineNumberValues,
+  doorList,
+  doorValues,
 } from '@/mock/data/option-data.js';
 
 export default {
@@ -171,7 +172,7 @@ export default {
         'machineNumber|1': machineNumberValues,
         'machineName': '@title(1)',
         'deployAddress': '@city()',
-        'handleType|1': ['开门', '关门'],
+        'handleType|1': doorValues,
         'handleTime': '@datetime()',
       }],
     });

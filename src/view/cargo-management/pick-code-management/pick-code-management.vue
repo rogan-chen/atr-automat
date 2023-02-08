@@ -28,6 +28,12 @@
 <script>
 import Mock from 'mockjs'
 import Tables from '_c/tables'
+import {
+  machineGroupNameList,
+  machineGroupNameValues,
+  machineNumberList,
+  machineNumberValues,
+} from '@/mock/data/option-data.js';
 
 export default {
   name: 'commodity_type_page',
@@ -44,21 +50,8 @@ export default {
         { title: '提货码状态', key: 'pickCodeState' },
         { title: '取货时间', key: 'pickupTime' },
       ],
-      machineGroupNameList: [
-        { value: '东莞塘厦分组', label: '东莞塘厦分组' },
-        { value: '香港九龙分组', label: '香港九龙分组' },
-        { value: '广州天河分组', label: '广州天河分组' },
-        { value: '深圳南山分组', label: '深圳南山分组' },
-        { value: '佛山禅城分组', label: '佛山禅城分组' },
-        { value: '珠海香洲分组', label: '珠海香洲分组' },
-      ],
-      machineNumberList: [
-        { value: '87213214435', label: '87213214435' },
-        { value: '34524352231', label: '34524352231' },
-        { value: '12334551224', label: '12334551224' },
-        { value: '96325120122', label: '96325120122' },
-        { value: '45630046272', label: '45630046272' },
-      ],
+      machineGroupNameList,
+      machineNumberList,
       tableData: [],
       // 新增/修改机器组名
       title: '提货码批量生成',
@@ -109,14 +102,7 @@ export default {
     // mock data
     const mockData = Mock.mock({
       'list|3-8': [{
-        'machineGroupName|+1': [
-          '东莞塘厦分组',
-          '香港九龙分组',
-          '广州天河分组',
-          '深圳南山分组',
-          '佛山禅城分组',
-          '珠海香洲分组',
-        ],
+        'machineGroupName|+1': machineGroupNameValues,
         'machineNumber': /\d{11,11}/,
         'pickCode|+1': '@title(1)',
         'pickCodeTime': '@datetime()',

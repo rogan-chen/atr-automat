@@ -91,6 +91,32 @@ export const switchList = [
   { value: '关闭', label: '关闭' },
 ];
 
+export const switchValues = ['开启', '关闭'];
+
+// 是/否
+export const whetherList = [
+  { value: '是', label: '是' },
+  { value: '否', label: '否' },
+];
+
+export const whetherValues = ['是', '否'];
+
+// 已锁定/未锁定
+export const lockList = [
+  { value: '已锁定', label: '已锁定' },
+  { value: '未锁定', label: '未锁定' },
+];
+
+export const lockValues = ['已锁定', '未锁定'];
+
+// 开门/关门
+export const doorList = [
+  { value: '开门', label: '开门' },
+  { value: '关门', label: '关门' },
+];
+
+export const doorValues = ['开门', '关门'];
+
 // 角色名称
 export const roleNames = [
   '测试员',

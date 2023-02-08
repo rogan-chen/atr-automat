@@ -35,6 +35,12 @@
 <script>
 import Mock from 'mockjs'
 import Tables from '_c/tables'
+import {
+  machineGroupNameList,
+  machineGroupNameValues,
+  machineNumberList,
+  machineNumberValues,
+} from '@/mock/data/option-data.js';
 
 export default {
   name: 'freight-way-management',
@@ -110,21 +116,8 @@ export default {
         }
       ],
       tableData: [],
-      machineGroupNameList: [
-        { value: '东莞塘厦分组', label: '东莞塘厦分组' },
-        { value: '香港九龙分组', label: '香港九龙分组' },
-        { value: '广州天河分组', label: '广州天河分组' },
-        { value: '深圳南山分组', label: '深圳南山分组' },
-        { value: '佛山禅城分组', label: '佛山禅城分组' },
-        { value: '珠海香洲分组', label: '珠海香洲分组' },
-      ],
-      machineNumberList: [
-        { value: '87213214435', label: '87213214435' },
-        { value: '34524352231', label: '34524352231' },
-        { value: '12334551224', label: '12334551224' },
-        { value: '96325120122', label: '96325120122' },
-        { value: '45630046272', label: '45630046272' },
-      ],
+      machineGroupNameList,
+      machineNumberList,
       // 新增/修改机器
       title: '新增机器',
       visible: false,
@@ -189,21 +182,8 @@ export default {
       'list|5-10': [{
         'id|+1': 1,
         'freightWay|+1': 1,
-        'machineGroupName|+1': [
-          '东莞塘厦分组',
-          '香港九龙分组',
-          '广州天河分组',
-          '深圳南山分组',
-          '佛山禅城分组',
-          '珠海香洲分组',
-        ],
-        'machineNumber|1': [
-          '87213214435',
-          '34524352231',
-          '12334551224',
-          '96325120122',
-          '45630046272',
-        ],
+        'machineGroupName|+1': machineGroupNameValues,
+        'machineNumber|1': machineNumberValues,
         'machineName': '@title(1)',
         'carbodyID': /\d{8,8}/,
       }],
