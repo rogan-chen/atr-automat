@@ -24,7 +24,10 @@
 <script>
 import Mock from 'mockjs'
 import Tables from '_c/tables'
-// TODO: 商品类型添加修改功能；
+import { 
+  commodityTypes,
+} from '@/mock/data/option-data.js';
+
 export default {
   name: 'commodity_type_page',
   components: {
@@ -38,24 +41,40 @@ export default {
         { title: '管理员', key: 'administrator', editable: true },
         {
           title: '操作',
-          key: 'handle',
-          options: ['delete'],
-          button: [
-            (h, params, vm) => {
-              return h('Poptip', {
+          key: 'action',
+          width: 140,
+          render: (h, params) => {
+            return h('div', [
+              h('Button', {
                 props: {
-                  confirm: true,
-                  title: '你确定要删除吗?'
+                  type: 'info',
+                  size: 'small',
+                  ghost: true,
                 },
                 on: {
-                  'on-ok': () => {
-                    vm.$emit('on-delete', params)
-                    vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
+                  click: () => {
+                    this.title = '修改商品类型';
+                    this.visible = true;
+                    this.commodityType = params.row.commodityType;
+                    this.commodityDescribe = params.row.commodityDescribe;
+                    this.administrator = params.row.administrator;
+                    this.machineGroupIndex = params.row.initRowIndex;
                   }
                 }
-              }, [])
-            },
-          ]
+              }, '修改'),
+              h('span', {}, ' '),
+              h('Button', {
+                props: {
+                  type: 'warning',
+                  size: 'small',
+                  ghost: true,
+                },
+                on: {
+                  click: () => this.tableData.splice(params.index, 1)
+                },
+              }, '删除')
+            ]);
+          }
         }
       ],
       tableData: [],
@@ -65,6 +84,7 @@ export default {
       commodityType: '',
       commodityDescribe: '',
       administrator: '',
+      machineGroupIndex: -1,
     }
   },
   methods: {
@@ -81,17 +101,30 @@ export default {
       this.commodityType = '';
       this.commodityDescribe = '';
       this.administrator = '';
+      this.machineGroupIndex = -1;
     },
     okModal() {
-      this.tableData.unshift({
-        id: this.tableData.length + 1,
+      // 新增
+      if (this.machineGroupIndex < 0) {
+        this.tableData.unshift({
+          id: this.tableData.length + 1,
+          commodityType: this.commodityType,
+          commodityDescribe: this.commodityDescribe,
+          administrator: this.administrator,
+        });
+        return;
+      }
+
+      // 修改
+      this.tableData.splice(this.machineGroupIndex, 1, {
+        id: this.tableData[this.machineGroupIndex].id,
         commodityType: this.commodityType,
         commodityDescribe: this.commodityDescribe,
         administrator: this.administrator,
-      })
+      });
     },
     cancelModal() {
-      
+
     },
   },
   mounted() {
@@ -99,18 +132,7 @@ export default {
     const mockData = Mock.mock({
       'list|5-10': [{
         'id|+1': 1,
-        'commodityType|+1': [
-          '咖啡类',
-          '功能饮料',
-          '碳酸饮料',
-          '饮用水',
-          '凉茶',
-          '方便面',
-          '纯牛奶',
-          '生鲜食品',
-          '预调酒',
-          '养生酒',
-        ],
+        'commodityType|+1': commodityTypes,
         'commodityDescribe|+1': [
           '港芝出品，必属精品！',
           '这个品类的食品非常不错',
