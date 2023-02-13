@@ -35,6 +35,9 @@
         登录账号：<Input v-model="account" placeholder="请输入登录账号" style="width: 400px" />
       </div>
       <div style="margin-top: 20px;">
+        设置密码：<Input v-model="pwd" placeholder="请输入密码" :disabled="machineGroupIndex!=-1" type="password" password style="width: 400px" />
+      </div>
+      <div style="margin-top: 20px;">
         身份证：<Input v-model="idNumber" placeholder="请输入身份证" style="width: 400px" />
       </div>
       <div style="margin-top: 20px;">
@@ -55,7 +58,7 @@ import {
   roleNameList,
   userGroupNames,
 } from '@/mock/data/option-data.js'
-
+// TODO: 操作栏密码重置/设置密码功能
 export default {
   name: 'role_management_page',
   components: {
@@ -72,7 +75,7 @@ export default {
         {
           title: '操作',
           key: 'action',
-          width: 170,
+          width: 230,
           render: (h, params) => {
             return h('div', [
               h('Button', {
@@ -121,6 +124,17 @@ export default {
                   click: () => this.$Message.info('用户未锁定，无需解锁！')
                 },
               }, '解锁'),
+              h('span', {}, ' '),
+              h('Button', {
+                props: {
+                  type: 'error',
+                  size: 'small',
+                  ghost: true,
+                },
+                on: {
+                  click: () => this.$Message.info('密码重置成功！')
+                },
+              }, '密码重置'),
             ]);
           }
         }
@@ -137,6 +151,7 @@ export default {
       starUse: '',
       userGroup: '',
       account: '',
+      pwd: '',
       idNumber: '',
       email: '',
       nativePlace: '',
@@ -159,6 +174,7 @@ export default {
       this.starUse = '';
       this.userGroup = '';
       this.account = '';
+      this.pwd = '';
       this.idNumber = '';
       this.email = '';
       this.nativePlace = '';
@@ -176,6 +192,7 @@ export default {
           starUse: this.starUse,
           userGroup: this.userGroup,
           account: this.account,
+          pwd: this.pwd,
           idNumber: this.idNumber,
           email: this.email,
           nativePlace: this.nativePlace,
@@ -193,6 +210,7 @@ export default {
           starUse: this.starUse,
           userGroup: this.userGroup,
           account: this.account,
+          pwd: this.pwd,
           idNumber: this.idNumber,
           email: this.email,
           nativePlace: this.nativePlace,

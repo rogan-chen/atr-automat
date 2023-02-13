@@ -604,7 +604,7 @@ export default [
           icon: 'md-help',
           title: '帮助管理',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/system-setting/help-management/help-management.vue'),
       },
       {
         path: 'pay_parameter',
