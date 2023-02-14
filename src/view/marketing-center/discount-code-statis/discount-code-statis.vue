@@ -11,6 +11,10 @@
 <script>
 import Mock from 'mockjs'
 import Tables from '_c/tables'
+import { 
+  commoditys, 
+  discounts,
+} from '@/mock/data/option-data.js'
 
 export default {
   name: 'discount_code_statis_page',
@@ -34,24 +38,22 @@ export default {
         { title: '实付金额', key: 'payAmount' },
         {
           title: '操作',
-          key: 'handle',
-          options: ['delete'],
-          button: [
-            (h, params, vm) => {
-              return h('Poptip', {
+          key: 'action',
+          width: 140,
+          render: (h, params) => {
+            return h('div', [
+              h('Button', {
                 props: {
-                  confirm: true,
-                  title: '你确定要删除吗?'
+                  type: 'warning',
+                  size: 'small',
+                  ghost: true,
                 },
                 on: {
-                  'on-ok': () => {
-                    vm.$emit('on-delete', params)
-                    vm.$emit('input', params.tableData.filter((item, index) => index !== params.row.initRowIndex))
-                  }
-                }
-              }, [])
-            }
-          ]
+                  click: () => this.tableData.splice(params.index, 1)
+                },
+              }, '删除')
+            ]);
+          }
         }
       ],
       tableData: []
@@ -76,31 +78,14 @@ export default {
         'machineName': '中吉自动售货机',
         'trackNum|1-30': 1,
         'commodityNum': /\d{10,10}/,
-        'commodity|+1': [
-          '雀巢咖啡',
-          '可口可乐',
-          '百事可乐',
-          '方便面',
-          '农夫山泉',
-          '雪碧',
-          '熔岩蛋糕',
-          '手抓饼',
-          '威化饼干',
-          '冰红茶',
-        ],
+        'commodity|+1': commoditys,
         'commodityQuantity|1-10': 1,
         'result': '已出库',
         'orderNum|2': /\d{5,8}\-/,
         'couponCode': '@title(1)',
         'promoter': '@cname',
         'paymentTime': '@datetime()',
-        'discount|+1': [
-          '95折',
-          '97折',
-          '88折',
-          '93折',
-          '56折',
-        ],
+        'discount|+1': discounts,
         'payAmount|1-100.2': 1,
       }],
     });

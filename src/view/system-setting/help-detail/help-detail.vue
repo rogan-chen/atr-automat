@@ -36,12 +36,8 @@ export default {
                   size: 'small',
                   ghost: true,
                 },
-                on: {
-                  click: () => this.$router.push({ 
-                    path: '/help_detail',
-                  }),
-                }
-              }, '进入'),
+                on: {}
+              }, '预览'),
             ]);
           }
         }
@@ -56,7 +52,7 @@ export default {
 
     okModal() {},
 
-    cancelModal() { },
+    cancelModal() {},
   },
   mounted() {
     // mock data

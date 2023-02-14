@@ -242,8 +242,6 @@ export default {
         remoteState: this.remoteState,
         setTime: new Date().toLocaleString().replace('/', '-').replace('/', '-'),
       });
-
-
     },
     cancelModal() { },
   },

@@ -1,3 +1,43 @@
+// 折扣
+export const discounts = [
+  '95折',
+  '97折',
+  '88折',
+  '93折',
+  '85折',
+  '64折',
+  '73折',
+  '56折',
+];
+
+// 活动方式
+export const actionTypes = [
+  '限时折扣',
+  '商品限购',
+  '优惠券',
+];
+
+export const actionTypeList = [
+  { value: '限时折扣', label: '限时折扣' },
+  { value: '商品限购', label: '商品限购' },
+  { value: '优惠券', label: '优惠券' },
+];
+
+// 活动状态
+export const actionStates = [
+  '已停止',
+  '未开始',
+  '进行中',
+  '已结束',
+];
+
+export const actionStateList = [
+  { value: '已停止', label: '已停止' },
+  { value: '未开始', label: '未开始' },
+  { value: '进行中', label: '进行中' },
+  { value: '已结束', label: '已结束' },
+];
+
 // 商品
 export const commoditys = [
   '雀巢咖啡',
