@@ -754,7 +754,7 @@ export default [
           icon: 'md-stats',
           title: '销售汇总统计'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue')
+        component: () => import('@/view/report-statis/sales-summary-statis/sales-summary-statis.vue')
       },
     ],
   },

@@ -195,3 +195,35 @@ export const userGroupNames = [
   '工程部',
   '私董会',
 ];
+
+// 销售类型
+export const saleTypes = [
+  '商品名称',
+  '商品类型',
+  '单价',
+  '支付类型',
+  '机器编号',
+  '24小时销售统计',
+];
+
+export const saleTypeList = [
+  { value: '商品名称', label: '商品名称' },
+  { value: '商品类型', label: '商品类型' },
+  { value: '单价', label: '单价' },
+  { value: '支付类型', label: '支付类型' },
+  { value: '机器编号', label: '机器编号' },
+  { value: '24小时销售统计', label: '24小时销售统计' },
+];
+
+// 时间类型
+export const timeTypes = [
+  '按天统计',
+  '按月统计',
+  '按年统计',
+];
+
+export const timeTypeList = [
+  { value: '按天统计', label: '按天统计' },
+  { value: '按月统计', label: '按月统计' },
+  { value: '按年统计', label: '按年统计' },
+];
