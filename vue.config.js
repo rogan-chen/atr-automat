@@ -40,12 +40,4 @@ module.exports = {
   // devServer: {
   //   proxy: 'localhost:3000'
   // }
-
-  // 打包设置
-  publicPath: './',
-  outputDir: 'dist',
-  assetsDir: 'static',
-  devServer: {
-    disableHostCheck: true,
-  },
 }
