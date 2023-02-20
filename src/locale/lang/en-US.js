@@ -44,6 +44,13 @@ export default {
   drag_drawer_page: 'Draggable Drawer',
   tree_select_page: 'Tree Selector',
 
+  operation_control: 'Daily Operation Control',
+  state_control: 'State Control',
+  sale_control: 'Daily Sale Control',
+  stock_query: 'Machine Shortage Query',
+  temperature_query: 'Machine Temperature Query',
+  replenishment_advice: 'Replenishment Suggestion',
+
   history_record: 'History Record',
   sale_detail: 'Sale Detail',
   shipping_record: 'Shipping Record',

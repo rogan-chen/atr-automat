@@ -44,6 +44,13 @@ export default {
   drag_drawer_page: '可拖动抽屉',
   tree_select_page: '树状下拉选择器',
 
+  operation_control: '日运行监控',
+  state_control: '状态监控',
+  sale_control: '当日销售监控',
+  stock_query: '机器缺货查询',
+  temperature_query: '机器温度查询',
+  replenishment_advice: '补货建议',
+
   history_record: '历史记录',
   sale_detail: '销售明细',
   shipping_record: '出货记录',

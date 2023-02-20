@@ -44,6 +44,13 @@ export default {
   drag_drawer_page: '可拖動抽屜',
   tree_select_page: '樹狀下拉選擇器',
 
+  operation_control: '日運行監控',
+  state_control: '狀態監控',
+  sale_control: '當日銷售監控',
+  stock_query: '機器缺貨查詢',
+  temperature_query: '機器溫度查詢',
+  replenishment_advice: '補貨建議',
+
   history_record: '歷史記錄',
   sale_detail: '銷售明細',
   shipping_record: '出貨記錄',
