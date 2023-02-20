@@ -256,7 +256,7 @@ export default [
           icon: 'ios-thermometer-outline',
           title: '机器温度查询'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/operation-control/temperature-query/temperature-query.vue'),
       },
       {
         path: 'replenishment_advice',
