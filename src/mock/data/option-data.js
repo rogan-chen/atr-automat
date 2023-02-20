@@ -227,3 +227,51 @@ export const timeTypeList = [
   { value: '按月统计', label: '按月统计' },
   { value: '按年统计', label: '按年统计' },
 ];
+
+// 网络状态
+export const networkStates = [
+  '在线',
+  '离线',
+  '停机',
+  '报警',
+];
+
+export const networkList = [
+  { value: '在线', label: '在线' },
+  { value: '离线', label: '离线' },
+  { value: '停机', label: '停机' },
+  { value: '报警', label: '报警' },
+];
+
+// 门状态
+export const doorStates = [
+  '开启',
+  '关闭',
+];
+
+export const doorStateList = [
+  { value: '开启', label: '开启' },
+  { value: '关闭', label: '关闭' },
+];
+
+// 正常/异常状态
+export const commonStates = [
+  '正常',
+  '异常',
+];
+
+export const commonStateList = [
+  { value: '正常', label: '正常' },
+  { value: '异常', label: '异常' },
+];
+
+// 有/无状态
+export const yesOrNoStates = [
+  '有',
+  '无',
+];
+
+export const yesOrNoStateList = [
+  { value: '有', label: '有' },
+  { value: '无', label: '无' },
+];

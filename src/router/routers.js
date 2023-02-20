@@ -218,7 +218,7 @@ export default [
     name: 'operation_control',
     meta: {
       icon: 'ios-eye',
-      title: '日运行监控'
+      title: '日运行监控',
     },
     component: Main,
     children: [
@@ -227,9 +227,9 @@ export default [
         name: 'state_control',
         meta: {
           icon: 'ios-funnel',
-          title: '状态监控'
+          title: '状态监控',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/operation-control/state-control/state-control.vue'),
       },
       {
         path: 'sale_control',
