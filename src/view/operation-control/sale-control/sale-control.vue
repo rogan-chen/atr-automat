@@ -83,7 +83,7 @@ export default {
     return {
       columns: [
         { title: '机器组名', key: 'machineGroupName' },
-        { title: '机器名', key: 'machineName', editable: true, width: 120 },
+        { title: '机器名', key: 'machineName', editable: true },
         { title: '箱体编号', key: 'carbodyID' },
         { title: '网络状态', key: 'networkState' },
         { title: '温度(­°C)', key: 'temperature', sortable: true },

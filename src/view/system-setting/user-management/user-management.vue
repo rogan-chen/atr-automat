@@ -58,7 +58,7 @@ import {
   roleNameList,
   userGroupNames,
 } from '@/mock/data/option-data.js'
-// TODO: 操作栏密码重置/设置密码功能
+
 export default {
   name: 'role_management_page',
   components: {

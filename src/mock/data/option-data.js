@@ -55,6 +55,23 @@ export const commoditys = [
   '脆脆鲨威化饼干',
 ];
 
+// 商品图片
+export const commodityImgs = [
+  'https://img1.baidu.com/it/u=1108956425,1388955701&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+  'https://p1.itc.cn/images01/20210911/ed59ab26380e4e42910c67afa52e486f.jpeg',
+  'https://img14.360buyimg.com/n1/jfs/t1/115224/28/9301/140005/5ed89532E882226c7/5288c95cf80e9699.jpg',
+  'https://img2.baidu.com/it/u=3517319194,1260086257&fm=253&fmt=auto&app=138&f=JPEG?w=671&h=500',
+  'https://i9.taou.com/maimai/p/28432/6026_13_81E8SHibtTKeuMzE',
+  'https://img1.baidu.com/it/u=1826211017,3442640748&fm=253&fmt=auto&app=138&f=JPEG?w=490&h=354',
+  'https://img1.baidu.com/it/u=2280902125,276833071&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=604',
+  'https://img0.baidu.com/it/u=1225324665,3529680893&fm=253&fmt=auto&app=138&f=JPEG?w=470&h=285',
+  'https://img0.baidu.com/it/u=2021451734,4240739035&fm=253&fmt=auto&app=138&f=JPEG?w=300&h=300',
+  'https://bms.spdl.com/SPDL/UploadFiles/NewsImages/20171017083849_9649.jpg',
+  'https://image5.suning.cn/uimg/nmps/ZJYDP/100020940106914658picA_1_392x294.jpg',
+  'http://t13.baidu.com/it/u=1525178058,2142616207&fm=224&app=112&f=JPEG?w=500&h=500',
+  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.alicdn.com%2Ftfscom%2Fi1%2F2478532816%2FTB2uDtWhzuhSKJjSspdXXc11XXa_%21%212478532816.jpg&refer=http%3A%2F%2Fimg.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1679474483&t=df5ee2d3a2ae5859a0661bcd17a13c6f',
+];
+
 // 商品类型
 export const commodityTypes = [
   '咖啡类',

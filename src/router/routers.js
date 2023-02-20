@@ -265,7 +265,7 @@ export default [
           icon: 'ios-locate',
           title: '补货建议'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/operation-control/replenishment-advise/replenishment-advise.vue'),
       },
     ],
   },
