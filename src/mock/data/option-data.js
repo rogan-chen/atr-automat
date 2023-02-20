@@ -275,3 +275,10 @@ export const yesOrNoStateList = [
   { value: '有', label: '有' },
   { value: '无', label: '无' },
 ];
+
+// 支付类型
+export const paymentTypes = [
+  '现金',
+  '纸币',
+  '硬币',
+];

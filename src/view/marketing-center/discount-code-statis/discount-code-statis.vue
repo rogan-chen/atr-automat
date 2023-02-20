@@ -75,7 +75,7 @@ export default {
       'list|5-20': [{
         'id|+1': 1,
         'machineNum': /\d{12,12}/,
-        'machineName': '中吉自动售货机',
+        'machineName': '@ctitle(2, 5)' + '售货机',
         'trackNum|1-30': 1,
         'commodityNum': /\d{10,10}/,
         'commodity|+1': commoditys,

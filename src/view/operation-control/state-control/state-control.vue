@@ -85,7 +85,7 @@ export default {
         'id|+1': 1,
         'machineGroupName|1': machineGroupNameValues,
         'machineNum|1': machineNumberValues,
-        'machineName': '中吉自动售货机',
+        'machineName': '@ctitle(2, 5)' + '售货机',
         'networkState|1': networkStates,
         'temperature|10-100': 1,
         'door|1': doorStates,

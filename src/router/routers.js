@@ -238,7 +238,7 @@ export default [
           icon: 'md-grid',
           title: '当日销售监控'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/operation-control/sale-control/sale-control.vue'),
       },
       {
         path: 'stock_query',
