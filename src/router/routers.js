@@ -247,7 +247,7 @@ export default [
           icon: 'ios-closed-captioning',
           title: '机器缺货查询'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/operation-control/stock-query/stock-query.vue'),
       },
       {
         path: 'temperature_query',

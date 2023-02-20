@@ -282,3 +282,9 @@ export const paymentTypes = [
   '纸币',
   '硬币',
 ];
+
+// 库存类型
+export const stockTypes = [
+  '缺货',
+  '未缺货',
+];

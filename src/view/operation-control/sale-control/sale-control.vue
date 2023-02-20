@@ -5,27 +5,58 @@
         @on-delete="handleDelete" />
       <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为excel文件</Button>
     </Card>
-    <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal" width="80%" cancelText=" " okText="关闭">
+    <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal" width="80%"
+      cancelText=" " okText="关闭">
       <strong>销售明细备注：机器时间，是出货时机器记录的时间；上传服务器时间，是指交易数据到达服务器的时间。有可能机器时间和服务器时间存在时间差，是因为机器时间不准确导致的。</strong>
+      <Row>
+        <br>
+        <Col span="6">
+          <strong style="font-size:15px;">机器编号：{{machineNum}}</strong>
+        </Col>
+        <Col span="6">
+          <strong style="font-size:15px;">机器名：{{machineName}}</strong>
+        </Col>
+        <Col span="6">
+          <strong style="font-size:15px;">现金收款金额：{{cashCollectionAmount}}</strong>
+        </Col>
+        <Col span="6">
+          <strong style="font-size:15px;">找零金额：{{changeAmount}}</strong>
+        </Col>
+      </Row>
+      <Row>
+        <Col span="6">
+          <strong style="font-size:15px;">销售金额：{{saleAmount}}</strong>
+        </Col>
+        <Col span="6">
+          <strong style="font-size:15px;">销售数量：{{saleCount}}</strong>
+        </Col>
+        <Col span="6">
+          <strong style="font-size:15px;">部署地址：{{deployAddress}}</strong>
+        </Col>
+        <Col span="6">
+          <strong style="font-size:15px;">管理员：{{administrator}}</strong>
+        </Col>
+      </Row>
+      <br>
       <Tabs>
-        <TabPane  label="交易流水" name="交易流水">
+        <TabPane label="交易流水" name="交易流水">
           <tables ref="streamTable" v-model="streamTableData" :columns="streamColumns" />
-        </TabPane >
-        <TabPane  label="销售汇总统计" name="销售汇总统计">
+        </TabPane>
+        <TabPane label="销售汇总统计" name="销售汇总统计">
           <tables ref="streamTable" v-model="saleSummaryTableData" :columns="saleSummaryColumns" />
-        </TabPane >
-        <TabPane  label="出货记录" name="出货记录">
+        </TabPane>
+        <TabPane label="出货记录" name="出货记录">
           <tables ref="streamTable" v-model="shipRecordTableData" :columns="shipRecordColumns" />
-        </TabPane >
-        <TabPane  label="门开关流水" name="门开关流水">
+        </TabPane>
+        <TabPane label="门开关流水" name="门开关流水">
           <tables ref="streamTable" v-model="doorSwitchTableData" :columns="doorSwitchColumns" />
-        </TabPane >
-        <TabPane  label="补货记录" name="补货记录">
+        </TabPane>
+        <TabPane label="补货记录" name="补货记录">
           <tables ref="streamTable" v-model="replenishmentRecordTableData" :columns="replenishmentRecordColumns" />
-        </TabPane >
-        <TabPane  label="应收金额" name="应收金额">
+        </TabPane>
+        <TabPane label="应收金额" name="应收金额">
           <tables ref="streamTable" v-model="receivableAmountTableData" :columns="receivableAmountColumns" />
-        </TabPane >
+        </TabPane>
       </Tabs>
     </Modal>
   </div>
@@ -289,4 +320,6 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+
+</style>
