@@ -285,7 +285,7 @@ export default [
           icon: 'md-filing',
           title: '销售明细',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/history-record/sale-detail/sale-detail.vue'),
       },
       {
         path: 'shipping_record',
