@@ -303,7 +303,7 @@ export default [
           icon: 'logo-yen',
           title: '钱币记录',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/history-record/coin-record/coin-record.vue'),
       },
       {
         path: 'call_police',

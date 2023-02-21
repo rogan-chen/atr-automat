@@ -1,6 +1,7 @@
 <template>
   <div>
     <strong>出货记录注：机器时间，是出货时机器记录的时间；上传服务器时间，是指交易数据到达服务器的时间。有可能机器时间和服务器时间存在时间差，是因为机器时间不准确或者数据延时上传。</strong>
+    <br><br>
     <Card>
       <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns"
         @on-delete="handleDelete" />
