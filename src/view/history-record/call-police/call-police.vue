@@ -1,6 +1,7 @@
 <template>
   <div>
     <strong>备注：报警记录，每次关门系统默认之前异常为已处理状态</strong>
+    <br><br>
     <Card>
       <tables ref="tables" editable searchable search-place="top" v-model="tableData" :columns="columns"
         @on-delete="handleDelete" />

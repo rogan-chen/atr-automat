@@ -104,6 +104,7 @@ export default {
       tableData: [],
       machineGroupNameList,
       machineNumberList,
+      doorList,
       // 新增/修改机器
       title: '新增机器',
       visible: false,

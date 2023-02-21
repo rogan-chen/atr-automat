@@ -321,7 +321,7 @@ export default [
           icon: 'ios-list-box',
           title: '非现金流水记录',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/history-record/noncash-record/noncash-record.vue'),
       },
       {
         path: 'replenish_record',
