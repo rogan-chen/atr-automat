@@ -294,7 +294,7 @@ export default [
           icon: 'ios-folder-open',
           title: '出货记录',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/history-record/shipping-record/shipping-record.vue'),
       },
       {
         path: 'coin_record',
