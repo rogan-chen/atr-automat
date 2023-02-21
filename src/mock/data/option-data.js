@@ -295,9 +295,11 @@ export const yesOrNoStateList = [
 
 // 支付类型
 export const paymentTypes = [
-  '现金',
-  '纸币',
-  '硬币',
+  '现金支付',
+  '纸币支付',
+  '硬币支付',
+  '微信支付',
+  '支付宝支付',
 ];
 
 // 库存类型
@@ -344,4 +346,14 @@ export const orderStates = [
   '已退款',
   '退款审核中',
   '已驳回',
+];
+
+// 广告图片
+export const adviceImgs = [
+  'https://p1.itc.cn/q_70/images03/20210817/773b314b2d8a44c4a77b0074a75113ab.jpeg',
+  'https://img2.baidu.com/it/u=977564963,2410139600&fm=253&fmt=auto&app=138&f=JPEG?w=752&h=500',
+  'https://img0.baidu.com/it/u=2766123496,281172681&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=330',
+  'https://img2.baidu.com/it/u=2351072449,2403178195&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313',
+  'https://hbimg.b0.upaiyun.com/8606ab6beaad7e5bc44854b8a0d517da41c18689e994-G1KN9a_fw658',
+  'https://img.zcool.cn/community/01cf895930f95ba8012193a3893ca3.jpg@1280w_1l_2o_100sh.jpg',
 ];

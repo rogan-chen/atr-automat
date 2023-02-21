@@ -526,6 +526,7 @@ export default [
     meta: {
       icon: 'md-stats',
       title: '报表统计',
+      showAlways: true,
     },
     component: Main,
     children: [
@@ -534,7 +535,7 @@ export default [
         name: 'sales_summary_statis',
         meta: {
           icon: 'md-stats',
-          title: '销售汇总统计'
+          title: '销售汇总统计',
         },
         component: () => import('@/view/report-statis/sales-summary-statis/sales-summary-statis.vue')
       },

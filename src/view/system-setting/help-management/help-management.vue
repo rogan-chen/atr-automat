@@ -24,27 +24,27 @@ export default {
         { title: '下级类型', key: 'subtype', editable: true },
         { title: '状态', key: 'status' },
         { title: '时间', key: 'time' },
-        {
-          title: '操作',
-          key: 'action',
-          width: 170,
-          render: (h, params) => {
-            return h('div', [
-              h('Button', {
-                props: {
-                  type: 'info',
-                  size: 'small',
-                  ghost: true,
-                },
-                on: {
-                  click: () => this.$router.push({ 
-                    path: '/help_detail',
-                  }),
-                }
-              }, '进入'),
-            ]);
-          }
-        }
+        // {
+        //   title: '操作',
+        //   key: 'action',
+        //   width: 170,
+        //   render: (h, params) => {
+        //     return h('div', [
+        //       h('Button', {
+        //         props: {
+        //           type: 'info',
+        //           size: 'small',
+        //           ghost: true,
+        //         },
+        //         on: {
+        //           click: () => this.$router.push({ 
+        //             path: '/help_detail',
+        //           }),
+        //         }
+        //       }, '进入'),
+        //     ]);
+        //   }
+        // }
       ],
       tableData: [],
     }

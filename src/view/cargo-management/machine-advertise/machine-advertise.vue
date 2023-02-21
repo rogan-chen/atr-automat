@@ -11,6 +11,7 @@
 <script>
 import Mock from 'mockjs'
 import Tables from '_c/tables'
+import { adviceImgs } from '@/mock/data/option-data.js'
 
 export default {
   name: 'discount_code_statis_page',
@@ -21,7 +22,21 @@ export default {
     return {
       columns: [
         { title: '机器编号', key: 'machineNum', sortable: true },
-        { title: '图片', key: 'image' },
+        {
+          title: '图片',
+          key: 'image',
+          width: 120,
+          render: (h, { row }) => {
+            return (
+              <img 
+                src={row.image}
+                alt='cover'
+                fit='cover'
+                class='commodity-img'
+              />
+            )
+          }
+        },
         { title: '广告类型', key: 'advertType' },
         { title: '开始时间', key: 'startTime' },
         { title: '结束时间', key: 'endTime' },
@@ -69,7 +84,7 @@ export default {
       'list|5-20': [{
         'id|+1': 1,
         'machineNum': /\d{12,12}/,
-        'image': "@image('300x300', '#50B347', '#FFF', 'Mock.js')",
+        'image|1': adviceImgs,
         'advertType|1': [
           '告知广告',
           '促销广告',
@@ -92,5 +107,10 @@ export default {
 </script>
 
 <style>
-
+.commodity-img {
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 </style>
