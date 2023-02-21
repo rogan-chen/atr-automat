@@ -312,7 +312,7 @@ export default [
           icon: 'logo-github',
           title: '报警',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/history-record/call-police/call-police.vue'),
       },
       {
         path: 'non_cash_journal_record',

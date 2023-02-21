@@ -305,3 +305,9 @@ export const stockTypes = [
   '缺货',
   '未缺货',
 ];
+
+// 报警状态
+export const remarkStates = [
+  '已处理',
+  '未处理',
+];
