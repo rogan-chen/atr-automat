@@ -165,7 +165,45 @@
         <p class="bandTitle">用申请成功的支付宝账号扫描上方二维码，扫描完成后再点击页面下方“绑定”按钮完成操作！</p>
       </Modal>
     </TabPane>
-    <TabPane label="刷脸参数设置" name="刷脸参数设置">刷脸参数设置</TabPane>
+    <TabPane label="刷脸参数设置" name="刷脸参数设置">
+      <Card>
+        <template #title>
+          <strong>刷脸参数设置</strong>
+        </template>
+        <Row class="row">
+          <Col span="12" class="title">
+          <strong>是否启用支付宝刷脸参数配置：</strong>
+          </Col>
+          <Col span="12">
+          <Select v-model="faceSwipParams.enable" placeholder="请选择是否启用支付宝刷脸参数配置" class="form">
+            <Option v-for="item in whetherList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+          </Select>
+          </Col>
+        </Row>
+        <Row class="row">
+          <Col span="12" class="title">
+          <strong>刷脸模式：</strong>
+          </Col>
+          <Col span="12">
+          <Select v-model="faceSwipParams.swipModel" placeholder="请选择刷脸模式" class="form">
+            <Option :value="faceSwipParams.swipModel" :key="faceSwipParams.swipModel">{{ faceSwipParams.swipModel }}
+            </Option>
+          </Select>
+          </Col>
+        </Row>
+        <Row class="row">
+          <Col span="12" class="title">
+          <strong>Pid：</strong>
+          </Col>
+          <Col span="12">
+          <Input v-model="faceSwipParams.pid" placeholder="请输入Pid" class="form" />
+          </Col>
+        </Row>
+        <div class="band">
+          <Button class="bandBtn" type="primary" @click="onFaceSwipSave">保存</Button>
+        </div>
+      </Card>
+    </TabPane>
     <TabPane label="京东参数设置" name="京东参数设置">京东参数设置</TabPane>
     <TabPane label="翼支付参数设置" name="翼支付参数设置">翼支付参数设置</TabPane>
     <TabPane label="银商参数设置" name="银商参数设置">银商参数设置</TabPane>
@@ -304,6 +342,15 @@ export default {
         return;
       }
       this.$Message.info('直付通绑定成功！');
+    },
+
+    // 刷脸参数设置 -> 保存
+    onFaceSwipSave() {
+      if (this.faceSwipParams.pid.length === 0) {
+        this.$Message.error('Pid不能为空');
+        return;
+      }
+      this.$Message.info('保存成功！');
     },
   },
 }
