@@ -86,6 +86,19 @@ export const commodityTypes = [
   '养生酒',
 ];
 
+export const commodityTypeList = [
+  { value: '咖啡类', label: '咖啡类' },
+  { value: '功能饮料', label: '功能饮料' },
+  { value: '碳酸饮料', label: '碳酸饮料' },
+  { value: '饮用水', label: '饮用水' },
+  { value: '凉茶', label: '凉茶' },
+  { value: '方便面', label: '方便面' },
+  { value: '纯牛奶', label: '纯牛奶' },
+  { value: '生鲜食品', label: '生鲜食品' },
+  { value: '预调酒', label: '预调酒' },
+  { value: '养生酒', label: '养生酒' },
+];
+
 // 机器组名列表
 export const machineGroupNameList = [
   { value: '东莞塘厦分组', label: '东莞塘厦分组' },
@@ -382,4 +395,23 @@ export const bestPayModelList = [
   { value: '自定义设置', label: '自定义设置' },
   { value: 'V3个人', label: 'V3个人' },
   { value: 'V4企业', label: 'V4企业' },
+];
+
+// 供应商
+export const supplierList = [
+  { value: '自采商品', label: '自采商品' },
+  { value: '方便面', label: '方便面' },
+  { value: '可口可乐', label: '可口可乐' },
+  { value: '康师傅控股有限公司', label: '康师傅控股有限公司' },
+  { value: '广州统一企业有限公司', label: '广州统一企业有限公司' },
+  { value: '中吉公司', label: '中吉公司' },
+];
+
+export const supplierValues = [
+  '自采商品',
+  '方便面',
+  '可口可乐',
+  '康师傅控股有限公司',
+  '广州统一企业有限公司',
+  '中吉公司',
 ];

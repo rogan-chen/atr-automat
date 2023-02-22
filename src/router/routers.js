@@ -516,7 +516,7 @@ export default [
           icon: 'md-train',
           title: '商品信息'
         },
-        component: () => import('@/view/multilevel/level-2-1.vue')
+        component: () => import('@/view/commodity-management/commodity-information/commodity-information.vue')
       },
     ],
   },
