@@ -404,7 +404,7 @@ export default [
           icon: 'md-cog',
           title: '个人设置',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/system-setting/personal-setting/personal-setting.vue'),
       },
       {
         path: 'agent_trademark',
