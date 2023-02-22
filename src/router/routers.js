@@ -395,7 +395,7 @@ export default [
           icon: 'md-help-buoy',
           title: '设置支付参数',
         },
-        component: () => import('@/view/multilevel/level-2-1.vue'),
+        component: () => import('@/view/system-setting/pay-parameter/pay-parameter.vue'),
       },
       {
         path: 'personal_setting',
