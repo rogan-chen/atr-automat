@@ -357,3 +357,29 @@ export const adviceImgs = [
   'https://hbimg.b0.upaiyun.com/8606ab6beaad7e5bc44854b8a0d517da41c18689e994-G1KN9a_fw658',
   'https://img.zcool.cn/community/01cf895930f95ba8012193a3893ca3.jpg@1280w_1l_2o_100sh.jpg',
 ];
+
+// 京东支付模式
+export const jdPayModelValus = [
+  '默认设置',
+  '自定义设置',
+];
+
+export const jdPayModelList = [
+  { value: '默认设置', label: '默认设置' },
+  { value: '自定义设置', label: '自定义设置' },
+];
+
+// 翼支付模式
+export const bestPayModelValues = [
+  '默认设置',
+  '自定义设置',
+  'V3个人',
+  'V4企业',
+];
+
+export const bestPayModelList = [
+  { value: '默认设置', label: '默认设置' },
+  { value: '自定义设置', label: '自定义设置' },
+  { value: 'V3个人', label: 'V3个人' },
+  { value: 'V4企业', label: 'V4企业' },
+];

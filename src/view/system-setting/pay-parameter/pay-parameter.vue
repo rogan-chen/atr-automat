@@ -204,7 +204,102 @@
         </div>
       </Card>
     </TabPane>
-    <TabPane label="京东参数设置" name="京东参数设置">京东参数设置</TabPane>
+    <TabPane label="京东参数设置" name="京东参数设置">
+      <Card>
+        <template #title>
+          <strong>京东参数设置</strong>
+        </template>
+        <Row class="row">
+          <Col span="12" class="title">
+          <strong>是否启用京东支付：</strong>
+          </Col>
+          <Col span="12">
+          <Select v-model="jdParams.enable" placeholder="请选择是否是否启用京东支付" class="form">
+            <Option v-for="item in whetherList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+          </Select>
+          </Col>
+        </Row>
+        <temple v-show="jdParams.enable === '是'">
+          <Row class="row">
+            <Col span="12" class="title">
+            <strong>京东支付模式：</strong>
+            </Col>
+            <Col span="12">
+            <Select v-model="jdParams.payModel" placeholder="请选择京东支付模式" class="form">
+              <Option v-for="item in jdPayModelList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            </Select>
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="12" class="title">
+            <strong>京东折扣：</strong>
+            </Col>
+            <Col span="12">
+            <Tooltip content="默认100不打折" placement="right-start">
+              <InputNumber class="form" :max="100" :min="1" v-model="jdParams.discount"
+                :formatter="value => `${value}%`" />
+            </Tooltip>
+            </Col>
+          </Row>
+          <temple v-show="jdParams.payModel === '默认设置'">
+            <Row class="row">
+              <Col span="12" class="title">
+              <strong>结算银行名称：</strong>
+              </Col>
+              <Col span="12">
+              <Input v-model="jdParams.bankName" placeholder="请输入结算银行名称" class="form" />
+              </Col>
+            </Row>
+            <Row class="row">
+              <Col span="12" class="title">
+              <strong>个人银行结算姓名：</strong>
+              </Col>
+              <Col span="12">
+              <Input v-model="jdParams.name" placeholder="请输入个人银行结算姓名" class="form" />
+              </Col>
+            </Row>
+            <Row class="row">
+              <Col span="12" class="title">
+              <strong>结算卡号：</strong>
+              </Col>
+              <Col span="12">
+              <Input v-model="jdParams.cardNum" placeholder="请输入结算卡号" class="form" />
+              </Col>
+            </Row>
+          </temple>
+          <temple v-show="jdParams.payModel === '自定义设置'">
+            <Row class="row">
+              <Col span="12" class="title">
+              <strong>京东商户号：</strong>
+              </Col>
+              <Col span="12">
+              <Input v-model="jdParams.merchantID" placeholder="请输入京东商户号" class="form" />
+              </Col>
+            </Row>
+            <Row class="row">
+              <Col span="12" class="title">
+              <strong>京东秘钥：</strong>
+              </Col>
+              <Col span="12">
+              <Input v-model="jdParams.secretKey" placeholder="请输入京东秘钥" class="form" />
+              </Col>
+            </Row>
+            <Row class="row">
+              <Col span="12" class="title">
+              <strong>京东私密：</strong>
+              </Col>
+              <Col span="12">
+              <Input v-model="jdParams.privateKey" placeholder="请输入京东私密" class="form" />
+              </Col>
+            </Row>
+          </temple>
+        </temple>
+        <div class="band">
+          <strong class="bandTitle">京东个人收款，收取6‰手续费;结算到个人银行卡固定收每笔1.5元手续费。请慎重填写并认真核对，提交后不支持修改！</strong>
+          <Button class="bandBtn" type="primary" @click="onJDBind">绑定</Button>
+        </div>
+      </Card>
+    </TabPane>
     <TabPane label="翼支付参数设置" name="翼支付参数设置">翼支付参数设置</TabPane>
     <TabPane label="银商参数设置" name="银商参数设置">银商参数设置</TabPane>
   </Tabs>
@@ -214,6 +309,8 @@
 
 import {
   whetherList,
+  jdPayModelList,
+  bestPayModelList,
 } from '@/mock/data/option-data.js'
 
 export default {
@@ -254,8 +351,8 @@ export default {
       // 京东参数设置
       jdParams: {
         enable: '是', // 是否启用
-        payModel: '默认', // 支付模式
-        discount: '100', // 折扣
+        payModel: '默认设置', // 支付模式
+        discount: 100, // 折扣
         bankName: '', // 结算银行名称
         name: '', // 个人银行结算姓名
         cardNum: '', // 结算卡号
@@ -267,8 +364,8 @@ export default {
       // 翼支付参数设置
       bestpayParams: {
         enable: '是', // 是否启用
-        payModel: '默认', // 支付模式
-        discount: '100', // 折扣
+        payModel: '默认设置', // 支付模式
+        discount: 100, // 折扣
         merchantID: '', // 商户号
         tradeKey: '', // 交易key
         dataKey: '', // 数据key
@@ -281,7 +378,7 @@ export default {
       // 银商参数设置
       silverParams: {
         enable: '是', // 是否启用
-        discount: '100', // 折扣
+        discount: 100, // 折扣
         merchantID: '', // 商户号
         terminalID: '', // 终端号
         enableCurrency: true, // 是否开通数字货币
@@ -289,6 +386,8 @@ export default {
 
       // 选择器数据
       whetherList,
+      jdPayModelList,
+      bestPayModelList,
     };
   },
   methods: {
@@ -351,6 +450,52 @@ export default {
         return;
       }
       this.$Message.info('保存成功！');
+    },
+
+    // 京东参数设置-> 绑定
+    onJDBind() {
+      if (this.jdParams.enable === '否') {
+        this.$Message.info('绑定成功！');
+        return;
+      }
+
+      if (this.jdParams.payModel === '默认设置') {
+        if (this.jdParams.bankName.length === 0) {
+          this.$Message.error('结算银行名称不能为空！');
+          return;
+        }
+        if (this.jdParams.name.length === 0) {
+          this.$Message.error('个人银行结算姓名不能为空！');
+          return;
+        }
+        if (this.jdParams.cardNum.length === 0) {
+          this.$Message.error('结算卡号不能为空！');
+          return;
+        }
+
+        this.$Message.info('绑定成功！');
+        return;
+      }
+
+      if (this.jdParams.payModel === '自定义设置') {
+        if (this.jdParams.merchantID.length === 0) {
+          this.$Message.error('京东商户号不能为空！');
+          return;
+        }
+        if (this.jdParams.secretKey.length === 0) {
+          this.$Message.error('京东秘钥不能为空！');
+          return;
+        }
+        if (this.jdParams.privateKey.length === 0) {
+          this.$Message.error('京东私密不能为空！');
+          return;
+        }
+
+        this.$Message.info('绑定成功！');
+        return;
+      }
+
+      this.$Message.info('绑定成功！');
     },
   },
 }
