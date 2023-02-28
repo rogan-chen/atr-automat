@@ -6,15 +6,25 @@
       <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addMachineGroup">新增角色</Button>
     </Card>
     <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
-      <div>
-        角色名称：<Input v-model="roleName" placeholder="请输入角色名称" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        描述： <Input v-model="roleDescribe" placeholder="请输入描述" type="textarea" :rows="4"
-          style="width: 400px; text-indent: 18px;" />
-      </div>
+      <Row class="row" style="margin-top:0;">
+        <Col span="6">
+        <strong class="title">角色名称：</strong>
+        </Col>
+        <Col span="18">
+        <Input class="form" v-model="roleName" placeholder="请输入角色名称" />
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="6">
+        <strong class="title">描述：</strong>
+        </Col>
+        <Col span="18">
+        <Input class="form" v-model="roleDescribe" placeholder="请输入描述" type="textarea" :rows="4" />
+        </Col>
+      </Row>
     </Modal>
-    <Modal v-model="empowerVisible" title="权限设置" :mask-closable="false" @on-ok="okModalEmpower" @on-cancel="cancelModalEmpower">
+    <Modal v-model="empowerVisible" title="权限设置" :mask-closable="false" @on-ok="okModalEmpower"
+      @on-cancel="cancelModalEmpower">
       <Tree :data="empowerData" show-checkbox multiple></Tree>
     </Modal>
   </div>
@@ -218,13 +228,13 @@ export default {
         empowerData: this.empowerData,
       });
     },
-    cancelModal() {},
+    cancelModal() { },
     okModalEmpower() {
       // 授权
       const selectedItem = this.tableData[this.empowerIndex];
       selectedItem.empowerData = this.empowerData;
     },
-    cancelModalEmpower() {},
+    cancelModalEmpower() { },
   },
   mounted() {
     // mock data
@@ -244,5 +254,19 @@ export default {
 </script>
 
 <style>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 85%;
+}
 </style>

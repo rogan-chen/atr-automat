@@ -7,46 +7,46 @@
     </Card>
     <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
       <Row class="row" style="margin-top:0;">
-        <Col span="8">
+        <Col span="6">
         <strong class="title">机器分组：</strong>
         </Col>
-        <Col span="16">
+        <Col span="18">
         <Select class="form" v-model="machineGroupName" placeholder="请选择机器分组">
           <Option v-for="item in machineGroupNameList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
         </Col>
       </Row>
       <Row class="row">
-        <Col span="8">
+        <Col span="6">
         <strong class="title">机器编号：</strong>
         </Col>
-        <Col span="16">
+        <Col span="18">
         <Select class="form" v-model="machineNumber" placeholder="请选择机器编号">
           <Option v-for="item in machineNumberList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
         </Col>
       </Row>
       <Row class="row">
-        <Col span="8">
+        <Col span="6">
         <strong class="title">机器名： </strong>
         </Col>
-        <Col span="16">
+        <Col span="18">
         <Input class="form" v-model="machineName" placeholder="请输入机器名" />
         </Col>
       </Row>
       <Row class="row">
-        <Col span="8">
+        <Col span="6">
         <strong class="title">部署地址： </strong>
         </Col>
-        <Col span="16">
+        <Col span="18">
         <Input class="form" v-model="deployAddress" placeholder="请输入部署地址" />
         </Col>
       </Row>
       <Row class="row">
-        <Col span="8">
+        <Col span="6">
         <strong class="title">操作类型： </strong>
         </Col>
-        <Col span="16">
+        <Col span="18">
         <Select class="form" v-model="handleType" placeholder="请选择操作类型">
           <Option v-for="item in doorList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
@@ -219,6 +219,6 @@ export default {
 }
 
 .form {
-  width: 80%;
+  width: 85%;
 }
 </style>
