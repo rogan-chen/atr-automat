@@ -1,7 +1,8 @@
 <template>
   <Card>
     <div class="content-container">
-      <Upload action="image/upload">
+      <Upload :show-upload-list="false" action="//jsonplaceholder.typicode.com/posts/" :format="['jpg', 'jpeg', 'png', 'jfif']"
+        :on-format-error="handleFormatError" :before-upload="beforeUpload">
         <img class="upload-img" :src="coverImg" />
       </Upload>
       <div>
@@ -140,6 +141,32 @@ export default {
     };
   },
   methods: {
+    // file 转 base64
+    fileToBase64Async(file) {
+      return new Promise((resolve, reject) => {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (e) => {
+          resolve(e.target.result);
+        };
+      });
+    },
+
+    // 上传文件格式出错
+    handleFormatError() {
+      this.$Notice.warning({
+        title: '文件格式出错',
+        desc: '请选择图片格式的文件。'
+      });
+    },
+
+    // 上传图片
+    async beforeUpload(file) {
+      const base64Data = await this.fileToBase64Async(file);
+      this.coverImg = base64Data;
+      return false;
+    },
+
     // 选择省份
     onProvince(value) {
       this.province = value;
