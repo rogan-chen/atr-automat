@@ -5,33 +5,33 @@
       <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为excel文件</Button>
       <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addMachineGroup">新增用户组</Button>
     </Card>
-    <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
-      <div>
-        用户组名称：<Input v-model="userGroupName" placeholder="请输入用户组名称" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        描述： <Input v-model="describe" placeholder="请输入描述" type="textarea" :rows="4"
-          style="width: 400px; text-indent: 32px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        微信公众号权限： 
-        <CheckboxGroup v-model="authority">
-          <Checkbox label="今日收益报表"></Checkbox>
-          <Checkbox label="日运行管理"></Checkbox>
-          <Checkbox label="销售报表"></Checkbox>
-          <Checkbox label="移动支付报表"></Checkbox>
-          <Checkbox label="手动退款"></Checkbox>
-          <Checkbox label="K12校园统计"></Checkbox>
-          <Checkbox label="异常警告"></Checkbox>
-          <Checkbox label="网络监控"></Checkbox>
-          <Checkbox label="建议补货"></Checkbox>
-          <Checkbox label="机器组管理"></Checkbox>
-          <Checkbox label="货机管理"></Checkbox>
-          <Checkbox label="商品管理"></Checkbox>
-          <Checkbox label="上货管理"></Checkbox>
-          <Checkbox label="流量卡充值"></Checkbox>
+    <Modal width="600" v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
+      <Row class="row" style="margin-top:0;">
+        <Col span="6">
+        <strong class="title">用户组名称：</strong>
+        </Col>
+        <Col span="18">
+        <Input v-model="userGroupName" placeholder="请输入用户组名称" class="form" />
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="6">
+        <strong class="title">描述：</strong>
+        </Col>
+        <Col span="18">
+        <Input v-model="describe" placeholder="请输入描述" type="textarea" :rows="4" class="form" />
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="6">
+        <strong class="title">微信公众号权限：</strong>
+        </Col>
+        <Col span="18">
+        <CheckboxGroup v-model="authority" class="form">
+          <Checkbox v-for="item in authorityList" :label="item"></Checkbox>
         </CheckboxGroup>
-      </div>
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -92,6 +92,22 @@ export default {
         }
       ],
       tableData: [],
+      authorityList: [
+        '今日收益报表',
+        '日运行管理',
+        '销售报表',
+        '移动支付报表',
+        '手动退款',
+        'K12校园统计',
+        '异常警告',
+        '网络监控',
+        '建议补货',
+        '机器组管理',
+        '货机管理',
+        '商品管理',
+        '上货管理',
+        '流量卡充值',
+      ],
       // 新增/修改 用户组
       title: '新增用户组',
       visible: false,
@@ -148,7 +164,16 @@ export default {
         'userGroupName|+1': userGroupNames,
         'describe': '@cparagraph(1, 3)',
         'createDate': '@datetime()',
-        'authority': [],
+        'authority': [
+        '今日收益报表',
+        '销售报表',
+        '手动退款',
+        'K12校园统计',
+        '网络监控',
+        '建议补货',
+        '货机管理',
+        '上货管理',
+        ],
       }],
     });
 
@@ -158,5 +183,19 @@ export default {
 </script>
 
 <style>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 85%;
+}
 </style>
