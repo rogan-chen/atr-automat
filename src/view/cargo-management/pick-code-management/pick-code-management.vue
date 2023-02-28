@@ -6,21 +6,34 @@
       <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addPickCode">提货码批量生成</Button>
     </Card>
     <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
-      <div style="text-indent: 12px;">
-        机器组名：
-        <Select v-model="machineGroupName" placeholder="请选择机器分组" style="width: 400px;">
+      <Row class="row" style="margin-top: 0;">
+        <Col span="6" class="title">
+        <strong>机器组名：</strong>
+        </Col>
+        <Col span="18">
+        <Select v-model="machineGroupName" placeholder="请选择机器分组" class="form">
           <Option v-for="item in machineGroupNameList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
-      </div>
-      <div style="margin-top: 20px; text-indent: 12px;">
-        机器编号：
-        <Select v-model="machineNumber" placeholder="请选择机器编号" style="width: 400px;">
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="6" class="title">
+        <strong>机器编号：</strong>
+        </Col>
+        <Col span="18">
+        <Select v-model="machineNumber" placeholder="请选择机器编号" class="form">
           <Option v-for="item in machineNumberList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
-      </div>
-      <div style="margin-top: 20px;">
-        提货码数量： <Input v-model="pickCodeCount" placeholder="请输入提货码数量" style="width: 400px;" />
-      </div>
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="6" class="title">
+        <strong>提货码数量：</strong>
+        </Col>
+        <Col span="18">
+        <Input v-model="pickCodeCount" placeholder="请输入提货码数量" class="form" />
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -103,7 +116,7 @@ export default {
     const mockData = Mock.mock({
       'list|3-8': [{
         'machineGroupName|+1': machineGroupNameValues,
-        'machineNumber': /\d{11,11}/,
+        'machineNumber|1': machineNumberValues,
         'pickCode|+1': '@title(1)',
         'pickCodeTime': '@datetime()',
         'pickCodeState|+1': ['已使用', '未使用'],
@@ -117,5 +130,19 @@ export default {
 </script>
 
 <style>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 300px;
+}
 </style>

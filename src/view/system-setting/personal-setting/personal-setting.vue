@@ -107,6 +107,7 @@
 <script>
 import {
   whetherList,
+  fileToBase64Async,
 } from '@/mock/data/option-data.js'
 import provinceCityData from './provinceCityData'
 
@@ -141,17 +142,6 @@ export default {
     };
   },
   methods: {
-    // file 转 base64
-    fileToBase64Async(file) {
-      return new Promise((resolve, reject) => {
-        let reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = (e) => {
-          resolve(e.target.result);
-        };
-      });
-    },
-
     // 上传文件格式出错
     handleFormatError() {
       this.$Notice.warning({
@@ -162,7 +152,7 @@ export default {
 
     // 上传图片
     async beforeUpload(file) {
-      const base64Data = await this.fileToBase64Async(file);
+      const base64Data = await fileToBase64Async(file);
       this.coverImg = base64Data;
       return false;
     },

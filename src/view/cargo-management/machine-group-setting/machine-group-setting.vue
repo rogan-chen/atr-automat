@@ -6,16 +6,30 @@
       <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addMachineGroup">新增机器组</Button>
     </Card>
     <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
-      <div>
-        机器组名：<Input v-model="machineGroupName" placeholder="请输入机器组名" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        管理员：<Input v-model="administrator" placeholder="请输入管理员" style="width: 400px; text-indent: 11px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        描述： <Input v-model="machineGroupDescribe" placeholder="请输入描述" type="textarea" :rows="4"
-          style="width: 400px; text-indent: 18px;" />
-      </div>
+      <Row class="row" style="margin-top:0;">
+        <Col span="6">
+        <strong class="title">用户名称：</strong>
+        </Col>
+        <Col span="18">
+        <Input v-model="machineGroupName" placeholder="请输入机器组名" class="form" />
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="6">
+        <strong class="title">管理员：</strong>
+        </Col>
+        <Col span="18">
+        <Input v-model="administrator" placeholder="请输入管理员" class="form" />
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="6">
+        <strong class="title">描述：</strong>
+        </Col>
+        <Col span="18">
+        <Input v-model="machineGroupDescribe" placeholder="请输入描述" type="textarea" :rows="4" class="form" />
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -128,14 +142,7 @@ export default {
       'list|3-8': [{
         'id|+1': 1,
         'machineGroupName|+1': machineGroupNameValues,
-        'machineGroupDescribe|+1': [
-          '来看时代峻峰可视对讲分开了',
-          'ad上岛咖啡几十块等级分类考试的借款分类进来看',
-          '方法反馈反馈反馈反馈反馈',
-          '勒紧裤带公交卡',
-          '时空裂缝世纪东方看时间邓弗里斯觉得浪费时间浪费了',
-          '速度发货反馈更好发挥454东莞的方法法国',
-        ],
+        'machineGroupDescribe': '@cparagraph(1, 2)',
         'administrator': '@cname()',
       }],
     });
@@ -146,5 +153,19 @@ export default {
 </script>
 
 <style>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 85%;
+}
 </style>

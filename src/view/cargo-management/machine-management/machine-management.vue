@@ -5,58 +5,119 @@
       <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为excel文件</Button>
       <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addMachineGroup">新增机器</Button>
     </Card>
-    <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
-      <div style="text-indent: 12px;">
-        机器组名：
-        <Select v-model="machineGroupName" placeholder="请选择机器分组" style="width: 400px;">
-          <Option v-for="item in machineGroupNameList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-      </div>
-      <div style="margin-top: 20px; text-indent: 12px;">
-        机器编号：
-        <Select v-model="machineNumber" placeholder="请选择机器编号" style="width: 400px;">
-          <Option v-for="item in machineNumberList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-      </div>
-      <div style="margin-top: 20px;">
-        机器名： <Input v-model="machineName" placeholder="请输入机器名" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        厢体ID： <Input v-model="carbodyID" placeholder="请输入厢体ID" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px; text-indent: 12px;">
-        账号锁定：
-        <Select v-model="accountLockout" placeholder="请选择账号锁定" style="width: 400px;">
-          <Option v-for="item in lockList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-      </div>
-      <div style="margin-top: 20px;">
-        部署地址： <Input v-model="deployAddress" placeholder="请输入部署地址" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        经度： <Input v-model="longitude" placeholder="请输入经度" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        纬度： <Input v-model="latitude" placeholder="请输入纬度" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        自动退款次数： <Input v-model="refund" placeholder="请输入机器出货网络异常自动退款次数" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        收款账户： <Input v-model="collectionAccount" placeholder="请输入收款账户" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        便利店购物车：
-        <Select v-model="shoppingCar" placeholder="请选择便利店购物车状态" style="width: 400px;">
-          <Option v-for="item in switchList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-      </div>
-      <div style="margin-top: 20px;">
-        是否支持预定：
-        <Select v-model="preorder" placeholder="请选择是否支持预定" style="width: 400px;">
-          <Option v-for="item in whetherList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-      </div>
+    <Modal width="900" v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
+      <Row>
+        <Col span="12">
+          <Row class="row" style="margin-top:0;">
+            <Col span="6">
+            <strong class="title">机器组名：</strong>
+            </Col>
+            <Col span="18">
+              <Select v-model="machineGroupName" placeholder="请选择机器分组" class="form">
+                <Option v-for="item in machineGroupNameList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">机器编号：</strong>
+            </Col>
+            <Col span="18">
+              <Select v-model="machineNumber" placeholder="请选择机器编号" class="form">
+                <Option v-for="item in machineNumberList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">机器名：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="machineName" placeholder="请输入机器名" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">厢体ID：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="carbodyID" placeholder="请输入厢体ID" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">账号锁定：</strong>
+            </Col>
+            <Col span="18">
+              <Select v-model="accountLockout" placeholder="请选择账号锁定" class="form">
+                <Option v-for="item in lockList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">部署地址：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="deployAddress" placeholder="请输入部署地址" class="form" />
+            </Col>
+          </Row>
+        </Col>
+        <Col span="12">
+          <Row class="row" style="margin-top:0;">
+            <Col span="6">
+              <strong class="title">经度：</strong>
+            </Col>
+            <Col span="18">
+              <InputNumber v-model="longitude" placeholder="请输入经度" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">纬度：</strong>
+            </Col>
+            <Col span="18">
+              <InputNumber v-model="latitude" placeholder="请输入纬度" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">自动退款次数：</strong>
+            </Col>
+            <Col span="18">
+              <InputNumber v-model="refund" placeholder="请输入机器出货网络异常自动退款次数" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">收款账户：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="collectionAccount" placeholder="请输入收款账户" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">便利店购物车：</strong>
+            </Col>
+            <Col span="18">
+              <Select v-model="shoppingCar" placeholder="请选择便利店购物车状态" class="form">
+                <Option v-for="item in switchList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">是否支持预定：</strong>
+            </Col>
+            <Col span="18">
+              <Select v-model="preorder" placeholder="请选择是否支持预定" class="form">
+                <Option v-for="item in whetherList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -259,5 +320,19 @@ export default {
 </script>
 
 <style>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 85%;
+}
 </style>

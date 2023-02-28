@@ -1,3 +1,14 @@
+// file 转 base64
+export const fileToBase64Async = (file) => {
+  return new Promise((resolve, reject) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (e) => {
+      resolve(e.target.result);
+    };
+  });
+}
+
 // 折扣
 export const discounts = [
   '95折',
@@ -369,6 +380,14 @@ export const adviceImgs = [
   'https://img2.baidu.com/it/u=2351072449,2403178195&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313',
   'https://hbimg.b0.upaiyun.com/8606ab6beaad7e5bc44854b8a0d517da41c18689e994-G1KN9a_fw658',
   'https://img.zcool.cn/community/01cf895930f95ba8012193a3893ca3.jpg@1280w_1l_2o_100sh.jpg',
+  'https://t7.baidu.com/it/u=1951548898,3927145&fm=193&f=GIF',
+  'https://t7.baidu.com/it/u=1831997705,836992814&fm=193&f=GIF',
+  'https://t7.baidu.com/it/u=2582370511,530426427&fm=193&f=GIF',
+  'https://t7.baidu.com/it/u=2851687453,2321283050&fm=193&f=GIF',
+  'https://t7.baidu.com/it/u=3377141529,2836503127&fm=193&f=GIF',
+  'https://t7.baidu.com/it/u=1372368482,3369119186&fm=193&f=GIF',
+  'https://t7.baidu.com/it/u=737555197,308540855&fm=193&f=GIF',
+  'https://t7.baidu.com/it/u=1297102096,3476971300&fm=193&f=GIF',
 ];
 
 // 京东支付模式
@@ -414,4 +433,23 @@ export const supplierValues = [
   '康师傅控股有限公司',
   '广州统一企业有限公司',
   '中吉公司',
+];
+
+// 广告类型
+export const advertTypeValues = [
+  '告知广告',
+  '促销广告',
+  '形象广告',
+  '建议广告',
+  '公益广告',
+  '推广广告',
+];
+
+export const advertTypeList = [
+  { value: '告知广告', label: '告知广告' },
+  { value: '促销广告', label: '促销广告' },
+  { value: '形象广告', label: '形象广告' },
+  { value: '建议广告', label: '建议广告' },
+  { value: '公益广告', label: '公益广告' },
+  { value: '推广广告', label: '推广广告' },
 ];
