@@ -158,7 +158,7 @@ export default {
                 },
                 on: {
                   click: () => {
-                    this.title = '修改角色';
+                    this.title = '修改用户';
                     this.visible = true;
                     this.userName = params.row.userName;
                     this.role = params.row.role;
@@ -171,6 +171,7 @@ export default {
                     this.nativePlace = params.row.nativePlace;
                     this.authority = params.row.authority;
                     this.pwd = params.row.pwd;
+                    this.isLock = params.row.isLock;
                     this.machineGroupIndex = params.row.initRowIndex;
                   }
                 }
@@ -194,9 +195,14 @@ export default {
                   ghost: true,
                 },
                 on: {
-                  click: () => this.$Message.info('用户未锁定，无需解锁！')
+                  click: () => {
+                    const message = params.row.isLock ? '解锁成功！' : '锁定成功！';
+                    this.$Message.info(message);
+                    const index = params.row.initRowIndex;
+                    this.tableData[index].isLock = !this.tableData[index].isLock;
+                  }
                 },
-              }, '解锁'),
+              }, params.row.isLock ? '解锁' : '锁定'),
               h('span', {}, ' '),
               h('Button', {
                 props: {
@@ -205,7 +211,11 @@ export default {
                   ghost: true,
                 },
                 on: {
-                  click: () => this.$Message.info('密码重置成功！')
+                  click: () => {
+                    this.$Message.info('密码重置成功！')
+                    const index = params.row.initRowIndex;
+                    this.tableData[index].pwd = '000000';
+                  }
                 },
               }, '密码重置'),
             ]);
@@ -229,17 +239,18 @@ export default {
       email: '',
       nativePlace: '',
       authority: '',
+      isLock: false,
       machineGroupIndex: -1,
     }
   },
   methods: {
     exportExcel() {
       this.$refs.tables.exportCsv({
-        filename: `角色-${(new Date()).valueOf()}.csv`
+        filename: `用户-${(new Date()).valueOf()}.csv`
       })
     },
     addMachineGroup() {
-      this.title = '新增角色';
+      this.title = '新增用户';
       this.visible = true;
       this.userName = '';
       this.role = '';
@@ -252,9 +263,40 @@ export default {
       this.email = '';
       this.nativePlace = '';
       this.authority = '';
+      this.isLock = false,
       this.machineGroupIndex = -1;
     },
     okModal() {
+      if (this.userName.length === 0) {
+        this.$Message.error('用户名称不能为空！');
+        return;
+      }
+
+      if (this.role.length === 0) {
+        this.$Message.error('所属角色不能为空！');
+        return;
+      }
+
+      if (this.phoneNumber.length === 0) {
+        this.$Message.error('电话号码不能为空！');
+        return;
+      }
+
+      if (this.userGroup.length === 0) {
+        this.$Message.error('用户组不能为空！');
+        return;
+      }
+
+      if (this.account.length === 0) {
+        this.$Message.error('登录账号不能为空！');
+        return;
+      }
+
+      if (this.idNumber.length === 0) {
+        this.$Message.error('身份证不能为空！');
+        return;
+      }
+
       // 新增
       if (this.machineGroupIndex < 0) {
         this.tableData.unshift({
@@ -268,6 +310,7 @@ export default {
           pwd: this.pwd,
           idNumber: this.idNumber,
           email: this.email,
+          isLock: this.isLock,
           nativePlace: this.nativePlace,
           authority: Math.random().toString(36).substr(2),
         });
@@ -286,6 +329,7 @@ export default {
         pwd: this.pwd,
         idNumber: this.idNumber,
         email: this.email,
+        isLock: this.isLock,
         nativePlace: this.nativePlace,
         authority: this.authority,
       });
@@ -307,6 +351,7 @@ export default {
         'email': '@email()',
         'nativePlace': '@province()',
         'authority': '@title(1)',
+        'isLock|1-2': true,
         'pwd': '000000',
       }],
     });
