@@ -6,30 +6,52 @@
       <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addMachineGroup">新增记录</Button>
     </Card>
     <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
-      <div style="text-indent: 12px;">
-        机器组名：
-        <Select v-model="machineGroupName" placeholder="请选择机器分组" style="width: 400px;">
+      <Row class="row" style="margin-top:0;">
+        <Col span="8">
+        <strong class="title">机器分组：</strong>
+        </Col>
+        <Col span="16">
+        <Select class="form" v-model="machineGroupName" placeholder="请选择机器分组">
           <Option v-for="item in machineGroupNameList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
-      </div>
-      <div style="margin-top: 20px; text-indent: 12px;">
-        机器编号：
-        <Select v-model="machineNumber" placeholder="请选择机器编号" style="width: 400px;">
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="8">
+        <strong class="title">机器编号：</strong>
+        </Col>
+        <Col span="16">
+        <Select class="form" v-model="machineNumber" placeholder="请选择机器编号">
           <Option v-for="item in machineNumberList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
-      </div>
-      <div style="margin-top: 20px;">
-        机器名： <Input v-model="machineName" placeholder="请输入机器名" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        部署地址： <Input v-model="deployAddress" placeholder="请输入部署地址" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px; text-indent: 12px;">
-        操作类型：
-        <Select v-model="handleType" placeholder="请选择操作类型" style="width: 400px;">
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="8">
+        <strong class="title">机器名： </strong>
+        </Col>
+        <Col span="16">
+        <Input class="form" v-model="machineName" placeholder="请输入机器名" />
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="8">
+        <strong class="title">部署地址： </strong>
+        </Col>
+        <Col span="16">
+        <Input class="form" v-model="deployAddress" placeholder="请输入部署地址" />
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="8">
+        <strong class="title">操作类型： </strong>
+        </Col>
+        <Col span="16">
+        <Select class="form" v-model="handleType" placeholder="请选择操作类型">
           <Option v-for="item in doorList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
-      </div>
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -169,7 +191,7 @@ export default {
     const mockData = Mock.mock({
       'list|3-8': [{
         'id|+1': 1,
-        'machineGroupName|+1':machineGroupNameValues,
+        'machineGroupName|+1': machineGroupNameValues,
         'machineNumber|1': machineNumberValues,
         'machineName': '@title(1)',
         'deployAddress': '@city()',
@@ -184,5 +206,19 @@ export default {
 </script>
 
 <style>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 80%;
+}
 </style>
