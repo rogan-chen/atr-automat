@@ -66,6 +66,22 @@ export const commoditys = [
   '脆脆鲨威化饼干',
 ];
 
+export const commodityList = [
+  { value: '雀巢咖啡', label: '雀巢咖啡' },
+  { value: '可口可乐', label: '可口可乐' },
+  { value: '百事可乐', label: '百事可乐' },
+  { value: '康师傅方便面', label: '康师傅方便面' },
+  { value: '农夫山泉', label: '农夫山泉' },
+  { value: '雪碧', label: '雪碧' },
+  { value: '麦香熔岩蛋糕', label: '麦香熔岩蛋糕' },
+  { value: '周杰伦手抓饼', label: '周杰伦手抓饼' },
+  { value: '嘉士利威化饼干', label: '嘉士利威化饼干' },
+  { value: '统一冰红茶', label: '统一冰红茶' },
+  { value: '三只松鼠松果', label: '三只松鼠松果' },
+  { value: '良品铺子开心果', label: '良品铺子开心果' },
+  { value: '脆脆鲨威化饼干', label: '脆脆鲨威化饼干' },
+];
+
 // 商品图片
 export const commodityImgs = [
   'https://img1.baidu.com/it/u=1108956425,1388955701&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
@@ -81,6 +97,10 @@ export const commodityImgs = [
   'https://image5.suning.cn/uimg/nmps/ZJYDP/100020940106914658picA_1_392x294.jpg',
   'http://t13.baidu.com/it/u=1525178058,2142616207&fm=224&app=112&f=JPEG?w=500&h=500',
   'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.alicdn.com%2Ftfscom%2Fi1%2F2478532816%2FTB2uDtWhzuhSKJjSspdXXc11XXa_%21%212478532816.jpg&refer=http%3A%2F%2Fimg.alicdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1679474483&t=df5ee2d3a2ae5859a0661bcd17a13c6f',
+  'https://img2.baidu.com/it/u=849995377,520435495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500',
+  'https://img0.baidu.com/it/u=3875972442,3590056617&fm=253&fmt=auto&app=138&f=JPEG?w=781&h=500',
+  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw%2Fba4b4515-f48a-499e-aa23-7a0af7b9db05%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1680163842&t=5dcbae714c0705fa88f8960ca8107c09',
+  'https://img0.baidu.com/it/u=3483141975,540804301&fm=253&fmt=auto&app=138&f=JPEG?w=801&h=500',
 ];
 
 // 商品类型
