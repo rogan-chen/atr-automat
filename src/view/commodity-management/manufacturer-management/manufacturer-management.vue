@@ -109,7 +109,6 @@
 import Mock from 'mockjs'
 import Tables from '_c/tables'
 
-// TODO: 厂商管理添加修改功能；
 export default {
   name: 'commodity_type_page',
   components: {

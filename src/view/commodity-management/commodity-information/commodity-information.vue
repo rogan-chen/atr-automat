@@ -12,7 +12,7 @@
     <Modal v-model="visible" :title="title" @on-ok="okModal" @on-cancel="cancelModal" width="1200">
       <Row>
         <Col span="6" class="upload-img-container">
-          <Upload action="image/upload" :before-upload="handleBeforeUpload">
+          <Upload :show-upload-list="false" action="image/upload" :before-upload="handleBeforeUpload">
             <img class="upload-img" :src="commodityImg" />
           </Upload>
         </Col>
@@ -131,6 +131,7 @@ import {
   commodityTypeList,
   supplierList,
   supplierValues,
+  fileToBase64Async,
 } from '@/mock/data/option-data.js';
 
 export default {
@@ -278,9 +279,9 @@ export default {
       this.tableData[this.topIndex].isTop = !this.tableData[this.topIndex].isTop;
     },
     // 上传图片
-    handleBeforeUpload(file) {
-      console.log(file)
-      this.commodityImg = file;
+    async handleBeforeUpload(file) {
+      const base64Data = await fileToBase64Async(file);
+      this.commodityImg = base64Data;
       return false;
     },
     okModal() {
@@ -374,6 +375,7 @@ export default {
 
 .right-form-container {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: flex-start;
 }

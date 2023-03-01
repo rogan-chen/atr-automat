@@ -7,39 +7,89 @@
       <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addConfig">新增营销活动</Button>
     </Card>
     <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal"
-      width="600px">
-      <div style="">
-        活动名称： <Input v-model="actionName" placeholder="请输入活动名称" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        活动方式：
-        <Select v-model="actionType" placeholder="请选择活动方式" style="width: 400px;">
-          <Option v-for="item in actionTypeList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-      </div>
-      <div style="margin-top: 20px;">
-        推广人： <Input v-model="promoter" placeholder="请输入推广人" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        优惠码： <Input v-model="couponCode" placeholder="请输入优惠码" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        活动时间段： <Input disabled v-model="timeSlot" placeholder="请输入活动时间段" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        活动开始时间：
-        <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择活动开始时间" style="width: 400px" v-model="startTime" />
-      </div>
-      <div style="margin-top: 20px;">
-        活动结束时间：
-        <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择活动结束时间" style="width: 400px" v-model="endTime" />
-      </div>
-      <div style="margin-top: 20px;">
-        活动状态：
-        <Select v-model="actionState" placeholder="请选择活动状态" style="width: 400px;">
-          <Option v-for="item in actionStateList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-      </div>
+      width="900">
+      <Row>
+        <Col span="12">
+          <Row class="row" style="margin-top:0;">
+            <Col span="6">
+              <strong class="title">活动名称：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="actionName" placeholder="请输入活动名称" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">活动方式：</strong>
+            </Col>
+            <Col span="18">
+              <Select v-model="actionType" placeholder="请选择活动方式" class="form">
+                <Option v-for="item in actionTypeList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">推广人：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="promoter" placeholder="请输入推广人" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">修改人：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="modifier" placeholder="请输入修改人" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">优惠码：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="couponCode" placeholder="请输入优惠码" class="form" />
+            </Col>
+          </Row>
+        </Col>
+        <Col span="12">
+          <Row class="row" style="margin-top:0;">
+            <Col span="6">
+              <strong class="title">活动时间段：</strong>
+            </Col>
+            <Col span="18">
+              <Input disabled v-model="timeSlot" placeholder="请输入活动时间段" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">活动开始时间：</strong>
+            </Col>
+            <Col span="18">
+              <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择活动开始时间" class="form" v-model="startTime" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">活动结束时间：</strong>
+            </Col>
+            <Col span="18">
+              <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择活动结束时间" class="form" v-model="endTime" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">活动状态：</strong>
+            </Col>
+            <Col span="18">
+              <Select v-model="actionState" placeholder="请选择活动状态" class="form">
+                <Option v-for="item in actionStateList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -227,5 +277,19 @@ export default {
 </script>
 
 <style>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 240px;
+}
 </style>
