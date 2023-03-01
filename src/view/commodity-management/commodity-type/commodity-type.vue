@@ -8,15 +8,30 @@
         @click="addCommodityType">新增商品类型</Button>
     </Card>
     <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
-      <div>
-        商品类型：<Input v-model="commodityType" placeholder="请输入商品类型" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        商品描述：<Input v-model="commodityDescribe" placeholder="请输入商品描述" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        管 理 员： <Input v-model="administrator" placeholder="请输入管理员姓名" style="width: 400px" />
-      </div>
+      <Row class="row" style="margin-top:0;">
+        <Col span="6">
+          <strong class="title">商品类型：</strong>
+        </Col>
+        <Col span="18">
+          <Input v-model="commodityType" placeholder="请输入商品类型" class="form" />
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="6">
+          <strong class="title">商品描述：</strong>
+        </Col>
+        <Col span="18">
+          <Input v-model="commodityDescribe" placeholder="请输入商品描述" class="form" />
+        </Col>
+      </Row>
+      <Row class="row">
+        <Col span="6">
+          <strong class="title">管理员：</strong>
+        </Col>
+        <Col span="18">
+          <Input v-model="administrator" placeholder="请输入管理员姓名" class="form" />
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -151,5 +166,19 @@ export default {
 </script>
 
 <style>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 85%;
+}
 </style>

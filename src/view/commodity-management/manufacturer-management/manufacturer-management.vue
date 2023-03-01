@@ -6,40 +6,101 @@
       <Button style="margin: 10px 0;" type="primary" @click="exportExcel">导出为excel文件</Button>
       <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addCommodityType">新增厂商</Button>
     </Card>
-    <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
-      <div>
-        厂商编号：<Input v-model="number" placeholder="请输入厂商编号" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        厂商名称：<Input v-model="name" placeholder="请输入厂商名称" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        合同编号：<Input v-model="contractNumber" placeholder="请输入合同编号" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        税号编号：<Input v-model="dutyNumber" placeholder="请输入税号编号" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        邮政编码：<Input v-model="postalCode" placeholder="请输入邮政编码" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        营业电话：<Input v-model="telephoneNumber" placeholder="请输入营业电话" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        联 系 人 ：<Input v-model="contact" placeholder="请输入联系人" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;text-indent: 7px;">
-        Email ：<Input v-model="email" placeholder="请输入email" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        联系电话：<Input v-model="contactNumber" placeholder="请输入联系电话" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        营业地址：<Input v-model="businessAddress" placeholder="请输入营业地址" style="width: 400px" />
-      </div>
-      <div style="margin-top: 20px;">
-        注册地址：<Input v-model="registeAddress" placeholder="请输入注册地址" style="width: 400px" />
-      </div>
+    <Modal width="900" v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal">
+      <Row>
+        <Col span="12">
+          <Row class="row" style="margin-top:0;">
+            <Col span="6">
+              <strong class="title">厂商编号：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="number" placeholder="请输入厂商编号" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">厂商名称：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="name" placeholder="请输入厂商名称" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">合同编号：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="contractNumber" placeholder="请输入合同编号" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">税号编号：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="dutyNumber" placeholder="请输入税号编号" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">邮政编码：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="postalCode" placeholder="请输入邮政编码" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">注册地址：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="registeAddress" placeholder="请输入注册地址" class="form" />
+            </Col>
+          </Row>
+        </Col>
+        <Col span="12">
+          <Row class="row" style="margin-top: 0;">
+            <Col span="6">
+              <strong class="title">联系人：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="contact" placeholder="请输入联系人" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">Email：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="email" placeholder="请输入email" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">联系电话：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="contactNumber" placeholder="请输入联系电话" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">营业地址：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="businessAddress" placeholder="请输入营业地址" class="form" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="6">
+              <strong class="title">营业电话：</strong>
+            </Col>
+            <Col span="18">
+              <Input v-model="telephoneNumber" placeholder="请输入营业电话" class="form" />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -233,5 +294,19 @@ export default {
 </script>
 
 <style>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 85%;
+}
 </style>

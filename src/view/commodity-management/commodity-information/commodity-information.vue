@@ -9,67 +9,71 @@
     <Modal v-model="topVisible" :title="isTop ? '取消置顶商品' : '置顶商品'" @on-ok="onTopOk">
       是否确认{{ isTop ? '取消置顶该商品' : '置顶该商品' }}？
     </Modal>
-    <Modal v-model="visible" :title="title" @on-ok="okModal" @on-cancel="cancelModal" width="1000px">
-      <div class="content-container">
-        <Upload action="image/upload" :before-upload="handleBeforeUpload">
-          <img class="upload-img" :src="commodityImg" />
-        </Upload>
-        <div>
-          <Row class="row">
-            <Col span="12" class="title">
-            <strong style="color:red;">*</strong>
-            <strong>商品编码：</strong>
+    <Modal v-model="visible" :title="title" @on-ok="okModal" @on-cancel="cancelModal" width="1200">
+      <Row>
+        <Col span="6" class="upload-img-container">
+          <Upload action="image/upload" :before-upload="handleBeforeUpload">
+            <img class="upload-img" :src="commodityImg" />
+          </Upload>
+        </Col>
+        <Col span="9">
+          <Row class="row" style="margin-top: 0;">
+            <Col span="8" class="title">
+              <strong style="color:red;">*</strong>
+              <strong>商品编码：</strong>
             </Col>
-            <Col span="12">
-            <Input v-model="commodityNum" placeholder="请输入商品条形码" class="form" />
+            <Col span="16">
+              <Input v-model="commodityNum" placeholder="请输入商品条形码" class="form" />
             </Col>
           </Row>
           <Row class="row">
-            <Col span="12" class="title">
+            <Col span="8" class="title">
             <strong style="color:red;">*</strong>
             <strong>规格：</strong>
             </Col>
-            <Col span="12">
+            <Col span="16">
             <Input v-model="specs" placeholder="请输入规格" class="form" />
             </Col>
           </Row>
           <Row class="row">
-            <Col span="12" class="title">
+            <Col span="8" class="title">
             <strong style="color:red;">*</strong>
             <strong>供应商：</strong>
             </Col>
-            <Col span="12">
+            <Col span="16">
             <Select v-model="supplier" placeholder="请选择供应商" class="form">
               <Option v-for="item in supplierList" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
             </Col>
           </Row>
           <Row class="row">
-            <Col span="12" class="title">
+            <Col span="8" class="title">
             <strong style="color:red;">*</strong>
             <strong>商品名称：</strong>
             </Col>
-            <Col span="12">
+            <Col span="16">
             <Input v-model="commodityName" placeholder="请输入商品名称" class="form" />
             </Col>
           </Row>
           <Row class="row">
-            <Col span="12" class="title">
+            <Col span="8" class="title">
             <strong style="color:red;">*</strong>
             <strong>商品类型：</strong>
             </Col>
-            <Col span="12">
+            <Col span="16">
             <Select v-model="commodityType" placeholder="请选择商品类型" class="form">
               <Option v-for="item in commodityTypeList" :value="item.value" :key="item.value">{{ item.label }}</Option>
             </Select>
             </Col>
           </Row>
-          <Row class="row">
-            <Col span="12" class="title">
+        </Col>
+        <Col span="9" class="right-form-container">
+          <Row class="row" style="margin-top: 0;">
+            <Col span="8" class="title">
             <strong style="color:red;">*</strong>
             <strong>单价：</strong>
             </Col>
-            <Col span="12">
+            <Col span="16">
             <InputNumber 
               v-model="unitPrice" 
               placeholder="请输入单价" 
@@ -81,10 +85,10 @@
             </Col>
           </Row>
           <Row class="row">
-            <Col span="12" class="title">
+            <Col span="8" class="title">
             <strong>进价：</strong>
             </Col>
-            <Col span="12">
+            <Col span="16">
             <InputNumber 
               v-model="bidPrice" 
               placeholder="请输入进价" 
@@ -96,23 +100,23 @@
             </Col>
           </Row>
           <Row class="row">
-            <Col span="12" class="title">
+            <Col span="8" class="title">
             <strong>保质期：</strong>
             </Col>
-            <Col span="12">
+            <Col span="16">
             <Input v-model="sellbyDate" placeholder="请输入保质期" class="form" />
             </Col>
           </Row>
           <Row class="row">
-            <Col span="12" class="title">
+            <Col span="8" class="title">
             <strong>说明：</strong>
             </Col>
-            <Col span="12">
+            <Col span="16">
             <Input v-model="describe" placeholder="请输入说明" class="form" type="textarea" :rows="4" />
             </Col>
           </Row>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -357,9 +361,21 @@ export default {
   justify-content: center;
 }
 
+.upload-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .upload-img {
   width: 245px;
   height: 245px;
+}
+
+.right-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .row {
