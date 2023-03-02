@@ -554,7 +554,7 @@ export default [
         path: 'discount_code_statis',
         name: 'discount_code_statis',
         meta: {
-          icon: 'logo-usd',
+          icon: 'md-card',
           title: '优惠码统计'
         },
         component: () => import('@/view/marketing-center/discount-code-statis/discount-code-statis.vue')
