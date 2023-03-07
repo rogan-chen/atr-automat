@@ -84,7 +84,12 @@ export default {
                 src={row.commodityImg}
                 alt='cover'
                 fit='cover'
-                class='commodity-img'
+                style={`
+                  width: 80px;
+                  height: 80px;
+                  margin-top: 10px;
+                  margin-bottom: 10px;
+                `}
               />
             )
           }
@@ -149,7 +154,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .stock-amount {
   color: red;
   font-weight: bold;

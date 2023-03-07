@@ -110,7 +110,7 @@ import Mock from 'mockjs'
 import Tables from '_c/tables'
 
 export default {
-  name: 'commodity_type_page',
+  name: 'manufacturer_management_page',
   components: {
     Tables
   },
@@ -292,7 +292,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .row {
   margin-top: 20px;
   display: flex;

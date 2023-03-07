@@ -199,7 +199,12 @@ export default {
                 src={row.image}
                 alt='cover'
                 fit='cover'
-                class='commodity-img'
+                style={`
+                  width: 80px;
+                  height: 80px;
+                  margin-top: 10px;
+                  margin-bottom: 10px;
+                `}
               />
             )
           }
@@ -489,7 +494,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .commodity-img {
   width: 80px;
   height: 80px;

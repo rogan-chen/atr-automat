@@ -231,7 +231,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .stock-amount {
   color: red;
   font-weight: bold;

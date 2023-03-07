@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .update-table-intro{
   margin-top: 10px;
 }

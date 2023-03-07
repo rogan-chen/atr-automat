@@ -309,7 +309,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .row {
   margin-top: 20px;
   display: flex;

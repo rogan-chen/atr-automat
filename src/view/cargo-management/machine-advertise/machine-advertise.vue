@@ -38,7 +38,8 @@
             <strong>开始时间：</strong>
             </Col>
             <Col span="14">
-            <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择开始时间" class="form" v-model="startTime" />
+            <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择开始时间" class="form"
+              v-model="startTime" />
             </Col>
           </Row>
           <Row class="row">
@@ -46,7 +47,8 @@
             <strong>结束时间：</strong>
             </Col>
             <Col span="14">
-            <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择结束时间" class="form" v-model="endTime" />
+            <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择结束时间" class="form"
+              v-model="endTime" />
             </Col>
           </Row>
           <Row class="row">
@@ -114,7 +116,12 @@ export default {
                 src={row.image}
                 alt='cover'
                 fit='cover'
-                class='commodity-img'
+                style={`
+                  width: 80px;
+                  height: 80px;
+                  margin-top: 10px;
+                  margin-bottom: 10px;
+                `}
               />
             )
           }
@@ -280,7 +287,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .commodity-img {
   width: 80px;
   height: 80px;
