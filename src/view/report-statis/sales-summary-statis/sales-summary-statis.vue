@@ -7,40 +7,96 @@
       <Button style="position:absolute; top: 27px; right: 17px;" type="primary" @click="addConfig">新增销售汇总</Button>
     </Card>
     <Modal v-model="visible" :title="title" :mask-closable="false" @on-ok="okModal" @on-cancel="cancelModal"
-      width="600px">
-      <div style="text-indent: 25px;">
-        商品名称： <Input v-model="commodityName" placeholder="请输入商品名称" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        销售类型：
-        <Select v-model="commodityType" placeholder="请选择销售类型" style="width: 400px;">
-          <Option v-for="item in saleTypeList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
-      </div>
-      <div style="margin-top: 20px;">
-        现金支付： <Input number v-model="cashPay" type="number" placeholder="请输入" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        数量： <Input number v-model="cashAmount" type="number" placeholder="请输入" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        微信支付(H)： <Input number v-model="wechatPay" type="number" placeholder="请输入" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        数量： <Input number v-model="wechatAmount" type="number" placeholder="请输入" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        支付宝扫码支付(H)： <Input number v-model="alipayScanCode" type="number" placeholder="请输入" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        数量： <Input number v-model="alipayAmount" type="number" placeholder="请输入" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        微信刷脸支付： <Input number v-model="wechatFacePay" type="wechatFacePay" placeholder="请输入" style="width: 400px;" />
-      </div>
-      <div style="margin-top: 20px;">
-        数量： <Input number v-model="wechatFaceAmount" type="number" placeholder="请输入" style="width: 400px;" />
-      </div>
+      width="1100">
+      <Row>
+        <Col span="12">
+          <Row class="row" style="margin-top:0;">
+            <Col span="8">
+              <strong class="title">商品名称：</strong>
+            </Col>
+            <Col span="16">
+              <Input v-model="commodityName" placeholder="请输入商品名称" />
+            </Col>
+          </Row>
+          
+          <Row class="row">
+            <Col span="8">
+              <strong class="title">现金支付：</strong>
+            </Col>
+            <Col span="16">
+              <Input number v-model="cashPay" type="number" placeholder="请输入" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="8">
+              <strong class="title">数量：</strong>
+            </Col>
+            <Col span="16">
+              <Input number v-model="cashAmount" type="number" placeholder="请输入" />
+            </Col>
+          </Row>
+          <Row class="row"> 
+            <Col span="8">
+              <strong class="title">微信支付(H)： </strong>
+            </Col>
+            <Col span="16">
+              <Input number v-model="wechatPay" type="number" placeholder="请输入" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="8">
+              <strong class="title">数量：</strong>
+            </Col>
+            <Col span="16">
+              <Input number v-model="wechatAmount" type="number" placeholder="请输入" />
+            </Col>
+          </Row>
+        </Col>
+        <Col span="12">
+          <Row class="row" style="margin-top:0;">
+            <Col span="8">
+              <strong class="title">销售类型：</strong>
+            </Col>
+            <Col span="16">
+              <Select v-model="commodityType" placeholder="请选择销售类型">
+                <Option v-for="item in saleTypeList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="8">
+              <strong class="title">支付宝扫码支付(H)：</strong>
+            </Col>
+            <Col span="16">
+              <Input number v-model="alipayScanCode" type="number" placeholder="请输入" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="8">
+              <strong class="title">数量：</strong>
+            </Col>
+            <Col span="16">
+              <Input number v-model="alipayAmount" type="number" placeholder="请输入" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="8">
+              <strong class="title">微信刷脸支付：</strong>
+            </Col>
+            <Col span="16">
+              <Input number v-model="wechatFacePay" type="wechatFacePay" placeholder="请输入" />
+            </Col>
+          </Row>
+          <Row class="row">
+            <Col span="8">
+              <strong class="title">数量：</strong>
+            </Col>
+            <Col span="16">
+              <Input number v-model="wechatFaceAmount" type="number" placeholder="请输入" />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </Modal>
   </div>
 </template>
@@ -287,5 +343,19 @@ export default {
 </script>
 
 <style scoped>
+.row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.title {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.form {
+  width: 85%;
+}
 </style>
